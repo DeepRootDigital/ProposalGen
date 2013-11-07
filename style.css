@@ -6,10 +6,11 @@ body {
     width:960px;
     margin-left: auto;
     margin-right:auto;
+    position:relative;
 }
 
 strong {
-    font-family:'DIN Next W01 Light';
+    font-family:'FMittelschriftDIN1451W0';
     text-transform:uppercase;
     font-size:15px;
 }
@@ -116,9 +117,15 @@ h3 span {
     padding-left:22px;
     padding-top:7px;
     padding-bottom:7px;
+    list-style-image:url('images/list-item-arrow.png');
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height:25px;
+    color: #343533;
 }
 
-.red {
+.colored {
+    color:#fff;
     background-color:#d1161c;
 }
 
@@ -126,13 +133,13 @@ h3 span {
     width:930px;
 }
 
-.slide-1 {
+#cover {
     width:100%;
     float:left;
     padding-top:55px;
 }
 
-.slide-2 {
+.overview-slide {
     float:left;
     padding-top:40px;
     background-image:url('images/slide-images/product-photo.png');
@@ -144,32 +151,32 @@ h3 span {
     min-height:540px;
 }
 
-.slide-3 {
+.cover-page {
     float:left;
     width:100%;
     padding-top:30px;
 }
 
-.slide-3 h2 {
+.cover-page h2 {
     float:left;
-    color:#fff;
-    max-width:270px;
     line-height:52px;
     margin-top:40px;
     margin-left:12px;
 }
 
-.slide-3 .slider-navigation {
-    padding-top:248px;
+.cover-page .encompass {
+    clear:both;
+    display: block;
+    margin-left:125px;
 }
 
-.slide-4  h3 {
+.content-slide h3 {
     float:left;
     clear:both;
     margin-bottom:10px;
 }
 
-.slide-4 p {
+.content-slide p {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     clear:both;
     font-size:15px;
@@ -178,8 +185,8 @@ h3 span {
 
 .slider-navigation {
     width:100%;
-    float:left;
-    padding-top:35px;
+    position:absolute;
+    top:500px;
     clear:both;
 }
 
@@ -217,4 +224,10 @@ h3 span {
     float:right;
     padding-right:20px;
     cursor:pointer;
+}
+
+/* Section Quirks */
+
+#sect2 h2 {
+    max-width:270px;
 }
