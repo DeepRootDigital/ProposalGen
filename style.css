@@ -4,6 +4,7 @@ body {
 
 .container {
     width:960px;
+    height:100%;
     margin-left: auto;
     margin-right:auto;
     position:relative;
@@ -226,8 +227,154 @@ h3 span {
     cursor:pointer;
 }
 
+.left-col {
+    height:100%;
+    width:162px;
+    position:absolute;
+    background-color:#e9e8e8;
+    padding-top:35px;
+    margin-left:-30px;
+}
+
+.left-col h3 {
+    width:500px;
+    border:none;
+    margin:0px;
+    padding:0px;
+    margin-left:-170px;
+    font-size:35px;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+.left-col h3 span {
+    font-weight:bold;
+}
+
+.right-col {
+    float:right;
+    width:780px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.right-col h4 {
+    font-family:'FMittelschriftDIN1451W0';
+    font-size:15px;
+    text-transform: uppercase;
+    color:#7e1417;
+    float:left;
+    clear:both;
+    padding-right:50px;
+    padding-bottom:5px;
+    margin-bottom:5px;
+}
+
+.right-col ul {
+    padding-left:25px;
+    clear:both;
+}
+
+.right-col ul li {
+    padding-top:0px;
+    padding-bottom: 0px;
+    padding-left:10px;
+}
+
+.col {
+    float:left;
+}
+
+.extended {
+    max-width:60%;
+    padding-left:50px;
+}
+
+.extended ul li {
+    font-weight:bold;
+}
+
+.extended ul li ul li {
+    font-weight:normal;
+}
+
+.slide-title {
+    width:100%;
+    float:left;
+    clear:both;
+    margin-top:25px;
+}
+
+.icon {
+    float:right;
+}
+
+.discipline {
+    color:#343533;
+}
+
+.discipline h2 {
+    font-size:30px;
+    float:left;
+    border-bottom: 1px solid #000;
+    margin-top:30px;
+    padding-bottom: 10px;
+}
+
+.discipline h4 {
+    color:#2c292a;
+    border-bottom:1px solid #fff;
+}
+
+.discipline .extended li {
+    font-weight:normal;
+}
+
+.invert {
+    color:#fff;
+}
+
+.invert h4 {
+    color:#fff;
+    border-bottom:1px solid #000;
+}
+
+.invert ul li {
+    color:#fff;
+    list-style-image: url('images/list-item-arrow-white.png');
+}
+
+
+/* Disciplines */
+.research {
+    background-color:#faa61a;
+}
+
+.business-development {
+    background-color:#8d3b99;
+}
+
+.branding {
+    background-color:#4dc6e1;
+}
+
+.web-development {
+    background-color:#bed62f;
+}
+
+.marketing {
+    background-color:#ee2e24;
+}
 /* Section Quirks */
 
 #sect2 h2 {
     max-width:270px;
+}
+
+#mark .slider-navigation {
+    margin-left:-150px;
 }
