@@ -248,6 +248,7 @@ h3 span {
     -ms-transform: rotate(-90deg);
     -o-transform: rotate(-90deg);
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    color:#7e1417;
 }
 
 .left-col h3 span {
@@ -287,6 +288,7 @@ h3 span {
 
 .col {
     float:left;
+    max-width:280px;
 }
 
 .extended {
@@ -348,6 +350,62 @@ h3 span {
     list-style-image: url('images/list-item-arrow-white.png');
 }
 
+.sample-page {
+    width:100%;
+    float:left;
+}
+
+.row {
+    float:left;
+    width:100%;
+    padding-bottom:10px;
+}
+
+.row img {
+    max-width: 460px;
+}
+
+.sample-module {
+    float:left;
+    padding-top: 10px;
+    padding-left: 18px;
+}
+
+.sample-module h4 {
+    text-transform: uppercase;
+    border-bottom:1px solid #000;
+    font-family:'FMittelschriftDIN1451W0';
+    font-weight:normal;
+    margin:0px;
+    padding-bottom:5px;
+    padding-right:100px
+}
+
+.sample-module h4 span {
+    color:#7e1417;
+}
+
+.sample-module ul {
+    padding:0px;
+    margin:0px;
+}
+
+.sample-module ul li {
+    list-style: none;
+    text-transform: uppercase;
+    font-family:'FMittelschriftDIN1451W0';
+    padding-left:0px;
+    padding-top:3px;
+    padding-bottom:3px;
+}
+
+.left {
+    float:left;
+}
+
+.right {
+    float:right;
+}
 
 /* Disciplines */
 .research {
@@ -371,10 +429,20 @@ h3 span {
 }
 /* Section Quirks */
 
+#sect4 {
+    background-color:#7e1417;
+}
+
 #sect2 h2 {
     max-width:270px;
 }
 
 #mark .slider-navigation {
     margin-left:-150px;
+}
+
+#sect4 .work-sample {
+    position: absolute;
+    right:0px;
+    top:0px;
 }

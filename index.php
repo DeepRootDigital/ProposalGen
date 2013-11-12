@@ -21,15 +21,12 @@
             <?php include 'content-slide3.php'; ?>
             <?php include 'research.php'; ?>
             <?php include 'business-development.php'; ?>
-            <div class="viewport branding">
-
-            </div>
-            <div class="viewport web-development">
-
-            </div>
-            <div class="viewport marketing">
-
-            </div>
+            <?php include 'branding.php'; ?>
+            <?php include 'webdevelopment.php'; ?>
+            <?php include 'marketing.php'; ?>
+            <?php include 'marketing-cont.php'; ?>
+            <?php include 'sect4cover.php'; ?>
+            <?php include 'sample-page.php'; ?>
         </div>
     </body>
 </html>
