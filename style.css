@@ -158,11 +158,16 @@ h3 span {
     padding-top:30px;
 }
 
+.colored .cover-page h2 {
+    border-bottom:2px solid #fff;
+}
+
 .cover-page h2 {
     float:left;
     line-height:52px;
     margin-top:40px;
     margin-left:12px;
+    border-bottom: 2px solid #000;
 }
 
 .cover-page .encompass {
@@ -406,6 +411,42 @@ h3 span {
 .right {
     float:right;
 }
+
+.team-member {
+    float:left;
+    width:100%;
+    margin-bottom: 20px;
+}
+
+.team-member img {
+    float:left;
+    padding-top:25px;
+}
+
+.team-member h3 {
+    font-size:20px;
+    border:none;
+    border-bottom:1px solid #000;
+    color:#7e1417;
+}
+
+.team-member h3 span {
+    font-size:15px;
+    color:#000;
+}
+
+.team-member p {
+    font-size:14px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 20px;
+}
+
+.team-wrapper {
+    float:left;
+    width:760px; 
+    margin-left:25px;
+}
+
 
 /* Disciplines */
 .research {

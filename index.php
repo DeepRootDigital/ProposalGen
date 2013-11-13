@@ -27,6 +27,8 @@
             <?php include 'marketing-cont.php'; ?>
             <?php include 'sect4cover.php'; ?>
             <?php include 'sample-page.php'; ?>
+            <?php include 'sect5cover.php'; ?>
+            <?php include 'team.php'; ?>
         </div>
     </body>
 </html>
