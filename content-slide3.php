@@ -1,6 +1,6 @@
 <div class="viewport">
                 <div class="container">
-                    <div class="content-page" id="mark">
+                    <div class="content-page mark">
                         <div class="left-col">
                             <h3><span>Marketing</span> Plan</h3>
                         </div>

@@ -1,7 +1,7 @@
 <div class="header">
     <div class="container">
         <div class="logo">
-            <img src="images/logo.png">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png">
         </div>
         <ul class="navigation">
             <li>01.<br/> Your Go To Market Team</li>

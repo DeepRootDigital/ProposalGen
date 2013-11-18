@@ -1,3 +1,24 @@
+/*
+Theme Name: BMS Proposal Generator
+Theme URI: http://businessonmarketst.com
+Author: Nicholas Koskowski
+Author URI: http://businessonmarketst.com
+Description: This application is designed to generate a beautiful proposal under the BMS branded parameters.
+Version: 1.0
+License: Autocracy License v1.0 - Held By Nicholas Koskowski
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: application framework
+*/
+
+/* 
+** FONT SELECTORS**
+font-family:'DIN Next W01 Light';
+font-family:'FMittelschriftDIN1451W0';
+font-family:'DINNextLTW01-UltraLight 706122';
+font-family:'DINNextRoundedLTW01-Lig';
+*/
+
+
 body {
     overflow:hidden;   
 }
@@ -15,14 +36,6 @@ strong {
     text-transform:uppercase;
     font-size:15px;
 }
-
-/* 
-** FONT SELECTORS**
-font-family:'DIN Next W01 Light';
-font-family:'FMittelschriftDIN1451W0';
-font-family:'DINNextLTW01-UltraLight 706122';
-font-family:'DINNextRoundedLTW01-Lig';
-*/
 
 h2 {
     font-family:'DIN Next W01 Light';
@@ -168,6 +181,7 @@ h3 span {
     margin-top:40px;
     margin-left:12px;
     border-bottom: 2px solid #000;
+    max-width:270px;
 }
 
 .cover-page .encompass {
@@ -474,15 +488,11 @@ h3 span {
     background-color:#7e1417;
 }
 
-#sect2 h2 {
-    max-width:270px;
-}
-
-#mark .slider-navigation {
+.mark .slider-navigation {
     margin-left:-150px;
 }
 
-#sect4 .work-sample {
+.work-sample {
     position: absolute;
     right:0px;
     top:0px;
