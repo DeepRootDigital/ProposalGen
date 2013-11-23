@@ -3,6 +3,7 @@
 include 'widgets/cover-widget.php'; 
 include 'widgets/content-widget.php'; 
 include 'widgets/freeform-content.php';
+include 'widgets/two-col-widget.php';
 register_sidebar(array(
     'name' => __('Slides'),
     'id' => 'slides',
