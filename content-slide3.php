@@ -48,8 +48,8 @@
                                     </ul>
                                 </div>
                                 <div class="slider-navigation">
-                                    <img class="previous" src="images/prev-button.png">
-                                    <img class="next" src="images/next-button.png">
+                                    <img class="previous" src="<?php echo get_template_directory_uri(); ?>/images/prev-button.png">
+                                    <img class="next" src="<?php echo get_template_directory_uri(); ?>/images/next-button.png">
                                 </div>
                             </div>
                         </div>

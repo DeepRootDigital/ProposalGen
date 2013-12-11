@@ -10,8 +10,8 @@
                 <li>BMS will grow AudioSnax brand visibility and recognition by establishing their social media as well as generally increasing the effectiveness of their online presence and messaging.</li>
             </ul>
             <div class="slider-navigation">
-                <img class="previous" src="images/prev-button.png">
-                <img class="next" src="images/next-button.png">
+                <img class="previous" src="<?php echo get_template_directory_uri(); ?>/images/prev-button.png">
+                <img class="next" src="<?php echo get_template_directory_uri(); ?>/images/next-button.png">
             </div>
         </div>
     </div>

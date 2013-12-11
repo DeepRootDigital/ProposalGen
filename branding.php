@@ -6,7 +6,7 @@
         <div class="right-col">
             <div class="slide-title">
                 <h2>Branding</h2>
-                <img src="images/brand-icon.png" class="icon" alt="research">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/brand-icon.png" class="icon" alt="research">
             </div>
             <div class="col">
                 <h4>Logo</h4>
@@ -36,8 +36,8 @@
             </div>
         </div>
         <div class="slider-navigation">
-            <img class="previous" src="images/prev-button.png">
-            <img class="next" src="images/next-button.png">
+            <img class="previous" src="<?php echo get_template_directory_uri(); ?>/images/prev-button.png">
+            <img class="next" src="<?php echo get_template_directory_uri(); ?>/images/next-button.png">
         </div>
     </div>
 </div>

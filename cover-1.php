@@ -1,9 +1,9 @@
 <div class="viewport">
     <div class="container">
         <div id="cover">
-            <img src="images/slide-images/slide-one.png">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/slide-images/slide-one.png">
             <div class="slider-navigation">
-                <img class="next" src="images/next-button.png">
+                <img class="next" src="<?php echo get_template_directory_uri(); ?>/images/next-button.png">
             </div>
         </div>
     </div>
