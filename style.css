@@ -497,3 +497,29 @@ h3 span {
     right:0px;
     top:0px;
 }
+
+table {
+    width: 100%;
+    border-collapse:collapse;
+}
+
+th {
+    text-align: left;
+    text-transform: uppercase;
+    font-family:'FMittelschriftDIN1451W0';
+    color:#7e1417;
+}
+
+td {
+    font-family:'FMittelschriftDIN1451W0';
+    padding:10px;
+    border:none;
+}
+
+.odd {
+    background-color: #ccc;
+}
+
+.even {
+    background-color: #fff;
+}
