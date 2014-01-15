@@ -2,13 +2,13 @@
     <div class="container">
         <div class="sample-page">
             <div class="row">
-                <img class="left" src="<?php echo get_template_directory_uri(); ?>/images/samples/bb1.png">
-                <img class="right" src="<?php echo get_template_directory_uri(); ?>/images/samples/bb2.png">
+                <img class="left" src="<?php echo get_template_directory_uri(); ?>/images/samples/v1.png">
+                <img class="right" src="<?php echo get_template_directory_uri(); ?>/images/samples/v2.png">
             </div>
             <div class="row">
-                <img class="left" src="<?php echo get_template_directory_uri(); ?>/images/samples/bb3.png">
+                <img class="left" src="<?php echo get_template_directory_uri(); ?>/images/samples/v3.png">
                 <div class="sample-module">
-                    <h4>Client // <span>Body Beanz</span></h4>
+                    <h4>Client // <span>Vivioptal Vitamins</span></h4>
                     <ul>
                         <li>Packaging Design</li>
                         <li>Product Photography</li>

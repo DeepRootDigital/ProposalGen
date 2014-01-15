@@ -31,7 +31,7 @@ class coverPageWidget extends WP_Widget {
 
         // YOUR DISPLAY OUTPUT GOES HERE!!!!!!!
 
-        echo '<div style="background-color:' . $bgcolor . ';" class="viewport colored">';
+        echo '<div style="background-color:' . $bgcolor . ';" class="viewport colored" id="section2">';
         echo '<div class="container">';
         echo '<div class="cover-page">';
         if ($moniker === 'Section 2') {
@@ -44,6 +44,7 @@ class coverPageWidget extends WP_Widget {
             echo '<img src = "' . get_template_directory_uri() . '/images/slide-images/section-five-moniker.png" class="section-moniker">';
         }
         echo '<h2>' . $title . '</h2>';
+        echo '<img style="margin-top:65px;" src="'.get_template_directory_uri().'/images/slide-images/RR.png">';
         echo '<div class = "slider-navigation">';
         echo '<img class = "previous" src = "' . get_template_directory_uri() . '/images/prev-button.png">';
         echo '<img class = "next" src = "' . get_template_directory_uri() . '/images/next-button.png">';

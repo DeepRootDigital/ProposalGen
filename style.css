@@ -18,11 +18,6 @@ font-family:'DINNextLTW01-UltraLight 706122';
 font-family:'DINNextRoundedLTW01-Lig';
 */
 
-
-body {
-    overflow:hidden;   
-}
-
 .container {
     width:960px;
     height:100%;
@@ -63,6 +58,10 @@ h3 span {
     color:#7e1417;
 }
 
+.viewport .minify li {
+    padding:0px;
+}
+
 .header {
     width:100%;
     height:110px;
@@ -97,6 +96,7 @@ h3 span {
     padding-left:10px;
     padding-right:55px;
     padding-top:30px;
+cursor:pointer;
 }
 
 .navigation li a {
@@ -156,7 +156,6 @@ h3 span {
 .overview-slide {
     float:left;
     padding-top:40px;
-    background-image:url('images/slide-images/product-photo.png');
     background-repeat:no-repeat;
     background-position-x: 50%;
     background-position-y: bottom;
@@ -186,8 +185,6 @@ h3 span {
 
 .cover-page .encompass {
     clear:both;
-    display: block;
-    margin-left:125px;
 }
 
 .content-slide h3 {
@@ -204,10 +201,11 @@ h3 span {
 }
 
 .slider-navigation {
-    width:100%;
-    position:absolute;
-    top:500px;
-    clear:both;
+   width: 1170px;
+position: absolute;
+top: 270px;
+clear: both;
+margin-left: -125px;
 }
 
 .slide-content {
@@ -228,10 +226,14 @@ h3 span {
 
 .company-logo {
     padding-left:85px;
+    width: 170px;
 }
 
 .section-moniker {
     float:left;
+}
+
+#section2 {
 }
 
 .previous {
@@ -484,7 +486,7 @@ h3 span {
 }
 /* Section Quirks */
 
-#sect4 {
+#section4 {
     background-color:#7e1417;
 }
 
@@ -498,6 +500,11 @@ h3 span {
     top:0px;
 }
 
+.services-page h2 {
+    margin-top:30px;
+    margin-bottom:30px;
+}
+
 table {
     width: 100%;
     border-collapse:collapse;
@@ -507,7 +514,9 @@ th {
     text-align: left;
     text-transform: uppercase;
     font-family:'FMittelschriftDIN1451W0';
+    font-size:22px;
     color:#7e1417;
+    padding:10px;
 }
 
 td {
@@ -522,4 +531,14 @@ td {
 
 .even {
     background-color: #fff;
+}
+
+.total {
+    color:#7e1417;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.serv {
+    max-width: 200px;
 }
