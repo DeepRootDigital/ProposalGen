@@ -1,0 +1,293 @@
+/* 
+font-family:'DIN Next W01 Light';
+font-family:'FMittelschriftDIN1451W0';
+font-family:'DINNextLTW01-UltraLight 706122';
+font-family:'DINNextRoundedLTW01-Lig';
+*/
+
+html, html a {
+	-webkit-font-smoothing: antialiased !important;
+}
+
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color:#2c292a;
+	min-width: 1200px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	margin:0px;
+	clear: both;
+	font-weight: normal;
+}
+
+p,ul,ol {
+	font-size: 15px;
+}
+
+ul li {
+	padding-top:10px;
+	padding-bottom:10px;
+	list-style-image: url('images/list-item-arrow-dark.png');
+	padding-left: 10px;
+}
+
+h1 {
+	text-transform: uppercase;
+	font-size:50px;
+	font-weight: normal;
+	font-family: 'DIN Next W01 Light';
+	line-height: 52px;
+	border-top:none !important;
+}
+
+h2 {
+	text-transform: uppercase;
+	font-size:30px;
+	font-weight: normal;
+	font-family: 'DIN Next W01 Light';
+	line-height: 52px;
+	border-top: 1px solid #2c292a;
+	border-bottom:none !important;
+}
+
+h3 {
+	font-family: 'DIN Next W01 Light';
+	text-transform: uppercase;
+	font-size: 16px;
+	border-bottom: 1px solid #2c292a;
+	padding-bottom: 5px;
+}
+
+table {
+	margin-top:10px;
+	width: 100%;
+	text-align: left;
+	font-family: 'DIN Next W01 Light';
+}
+
+thead {
+	color: #7e1417;
+	text-transform: uppercase;
+	font-size:22px;
+}
+
+td {
+	padding:10px;
+	font-size:14px;
+}
+
+/* Treaments */
+
+.white-treatment {
+	display: inline-block;
+	vertical-align: top;
+	border-bottom: 2px solid #fff;
+	border-top:1px solid #fff;
+	color:#fff;
+	padding-left:5px;
+	padding-right: 5px;
+}
+
+.dark-treatment {
+	display: inline-block;
+	vertical-align: top;
+	border-bottom: 2px solid #2c292a;
+	color:#2c292a;
+	padding-left:5px;
+	padding-right: 5px;
+}
+
+.white {
+	color:#fff;
+}
+
+.square-treatment {
+	background-image:url('images/square-texture.png');
+	background-repeat: repeat;
+}
+
+.odd-treatment {
+	background-color: #ccc;
+}
+
+.left-bottom-scizors {
+	background-image: url('images/servicepage-webdev.png');
+	background-position: bottom left;
+	background-repeat: no-repeat;
+}
+
+/* End Treatments */
+
+.clearfix {
+	clear:both;
+}
+
+.container {
+	width: 930px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}
+
+.header {
+	width: 100%;
+	height: 110px;
+	top: 0px;
+	position: fixed;
+	background-image: url('images/header-texture.png');
+	display: block;
+	z-index: 10000;
+}
+
+.screen {
+	width: 100%;
+	height: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding-top: 160px;
+}
+
+.discipline li {
+	padding-top:5px;
+	padding-bottom: 5px;
+}
+
+.discipline b {
+	border-bottom: 1px solid #fff;
+	padding-right:20px;
+	padding-bottom: 5px;
+	text-transform: uppercase;
+	font-family: 'DIN Next W01 Light';
+}
+
+.half-column {
+	width: 49.5%;
+	display: inline-block;
+}
+
+.third-column {
+	width: 32.3%;
+	display: inline-block;
+}
+
+.icon {
+	position: absolute;
+	top:0px;
+	right:0px;
+}
+
+.sample-img {
+	position: absolute;
+	right:0px;
+	top:-50px;
+}
+
+#section-two-cover {
+	background-color:rgb(17, 77, 120);
+}
+
+#section-two-cover h1 {
+	max-width: 270px;
+}
+
+#section-two-cover .instanced {
+	width: 100%;
+}
+
+#section-four-cover {
+	background-color:#7e1417;
+}
+
+#section-four-cover h1 {
+	max-width: 270px;
+}
+
+#section-four-cover .instanced {
+	width: 100%;
+}
+
+#section-five-cover h1 {
+	max-width: 270px;
+}
+
+#section-five-cover .instanced {
+	position: absolute;
+	width: 100%;
+	left: 0px;
+	z-index: -1;
+}
+
+#subway-map {
+	text-align: center;
+}
+
+#subway-map img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+#research-and-planning {
+	background-color: #faa61a;
+}
+
+#branding {
+	background-color: #4dc6e1;
+}
+
+#business-development {
+	background-color: #8d3b99;
+}
+
+#web-development {
+	background-color: #bed62f;
+}
+
+#marketing {
+	background-color: #ee2e24;
+}
+
+.work-sample h1 {
+	margin-bottom:10px;
+}
+
+.work-sample h1 span {
+	font-size:34px;
+	vertical-align: middle;
+}
+
+.work-sample img {
+	width: 50%;
+	padding-bottom:20px;
+	float:left;
+}
+
+.work-description {
+	font-family: 'DIN Next W01 Light';
+	font-size: 14px;
+	text-transform: uppercase;
+	width: 50%;
+	float: left;
+	padding-left: 20px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.work-description h3 {
+	display: inline-block;
+	padding-right: 90px;
+}
+
+.work-description h3 span {
+	color: #7e1417;
+}
+
+@media print {
+	.header {
+		position: absolute;
+		width: 100%;
+		top:0px;
+	}
+}
