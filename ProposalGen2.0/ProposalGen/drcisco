@@ -1,0 +1,60 @@
+<section class="screen left-bottom-scizors">
+		<div class="container">
+			<h2 class="dark-treatment">Services Rendered</h2>
+			<table>
+				<thead>
+					<th>Service</th>
+					<th>Timeframe</th>
+					<th>Subtotal</th>
+				</thead>
+				<tbody>
+					<tr class="odd-treatment">
+						<td>
+							8 Page Informational Website
+							<ul>
+								<li>Home</li>
+								<li>About</li>
+								<li>Services</li>
+								<li>Products</li>
+								<li>FAQ</li>
+								<li>Article Page</li>
+								<li>Contact Us</li>
+								<li>Are you a Doctor?</li>
+							</ul>
+						</td>
+						<td>1 Month</td>
+						<td>$3,500.00 <span style="color:#7e1417;">(Dr Cisco Provides Content)</span></td>
+					</tr>
+					<tr>
+						<td>
+							SEO
+							<ul>
+								<li></li>
+							</ul>
+						</td>
+						<td>Ongoing</td>
+						<td>$500.00</td>
+					</tr>
+					<tr class="odd-treatment">
+						<td>
+							Virtual ID / Logo
+						</td>
+						<td>1 Month</td>
+						<td>$1,500.00</td>
+					</tr>
+					<tr>
+						<td>
+						</td>
+						<td></td>
+						<td>Month 1 Total: $5,500.00</td>
+						</tr>
+					<tr class="odd-treatment">
+						<td>
+						</td>
+						<td></td>
+						<td>Ongoing Total: $500.00</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>

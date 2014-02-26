@@ -75,6 +75,50 @@ thead {
 td {
 	padding:10px;
 	font-size:14px;
+	font-weight: bold;
+}
+
+td ul {
+	font-weight: normal;
+}
+
+.logo {
+	float: left;
+	padding-left: 30px;
+	padding-top: 25px;
+}
+
+nav {
+	color: #fff;
+	text-transform: uppercase;
+	float: right;
+}
+
+nav a {
+	text-decoration: none;
+	color:#fff;
+}
+
+nav ul {
+	margin:0px;
+	padding:0px;
+}
+
+nav ul li {
+	list-style: none;
+	display: inline-block;
+	color: #fff;
+	font-family: 'DIN Next W01 Light';
+	font-size: 12px;
+	text-transform: uppercase;
+	border-left: 1px solid rgba(255, 255, 255, 0.40);
+	width: 94px;
+	height: 55px;
+	padding-left: 10px;
+	padding-right: 55px;
+	padding-top: 30px;
+	cursor: pointer;
+	vertical-align: top;
 }
 
 /* Treaments */
@@ -108,7 +152,7 @@ td {
 }
 
 .odd-treatment {
-	background-color: #ccc;
+	background-color: #fff;
 }
 
 .left-bottom-scizors {
@@ -165,11 +209,13 @@ td {
 .half-column {
 	width: 49.5%;
 	display: inline-block;
+	vertical-align: top;
 }
 
 .third-column {
 	width: 32.3%;
 	display: inline-block;
+	vertical-align: top;
 }
 
 .icon {
@@ -185,11 +231,12 @@ td {
 }
 
 #section-two-cover {
-	background-color:rgb(17, 77, 120);
+	background-color:#fff;
 }
 
 #section-two-cover h1 {
 	max-width: 270px;
+	margin-left:20px;
 }
 
 #section-two-cover .instanced {
@@ -202,6 +249,7 @@ td {
 
 #section-four-cover h1 {
 	max-width: 270px;
+	margin-left:20px;
 }
 
 #section-four-cover .instanced {
@@ -210,6 +258,7 @@ td {
 
 #section-five-cover h1 {
 	max-width: 270px;
+	margin-left:20px;
 }
 
 #section-five-cover .instanced {
@@ -258,9 +307,14 @@ td {
 }
 
 .work-sample img {
-	width: 50%;
 	padding-bottom:20px;
 	float:left;
+	width: 460px;
+}
+
+.work-sample img:first-of-type {
+	padding-left:0px;
+	padding-right: 10px;
 }
 
 .work-description {
@@ -284,6 +338,22 @@ td {
 	color: #7e1417;
 }
 
+.employee {
+	margin-bottom: 20px;
+}
+
+.employee img {
+	display: inline-block;
+	padding-right:20px;
+	float: left;
+}
+
+.employee-content {
+	width: 795px;
+	display: inline-block;
+	vertical-align: top;
+}
+
 @media print {
 	.header {
 		position: absolute;
@@ -291,3 +361,4 @@ td {
 		top:0px;
 	}
 }
+
