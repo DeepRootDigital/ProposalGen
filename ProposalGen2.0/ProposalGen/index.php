@@ -1,5 +1,6 @@
 <html>
 <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>BMS Proposal Gen - </title>
 	<link rel="stylesheet" type="text/css" href="normalize.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
@@ -7,43 +8,35 @@
 	<script type="text/javascript" src="function.js"></script>
 </head>
 <body>
-	<section class="header">
-		<div class="container">
-			<img class="logo" src="images/logo.png">
-			<nav>
-				<ul>
-					<li><a href="#cover">01.<br/>Your Go to Market Team</a></li>
-					<li><a href="#section-two-cover">02.<br/>Client Overview</a></li>
-					<li><a href="#subway-map">03.<br/>Products & Service Offerings</a></li>
-					<li><a href="#section-four-cover">04.<br/>Work Samples</a></li>
-					<li><a href="#section-five-cover">05.<br/>Get to Know your Team</a></li>
-				</ul>	
-			</nav>
-		</div>
-	</section>
+	
 	<section id="cover" class="screen">
+		<?php include 'header.php'; ?>
 		<div class="container">
 			<img src="images/cover-img.png">
 		</div>
 	</section>
 
 	<section id="section-two-cover" class="screen">
+		<?php include 'header.php'; ?>
 		<div class="container">
-			<img src="images/section-two-moniker-dark.png">
-			<h1 class="dark-treatment">Dr. Cisco</h1>
+			<img style="position:relative; z-index:1000;" src="images/section-two-moniker-dark.png">
+			<h1 class="white-treatment">Dr. Cisco<br/> <span>Overview</span></h1>
+			<img class="instanced" src="images/instanciation/steth.png">
 		</div>
 	</section>
 
 	<section class="screen">
+		<?php include 'header.php'; ?>
 		<div class="container">
-			<h2 class="dark-treatment">Company Overview</h2>
-			<p>Dr. Cisco is a specialist within the discipline of psychology.  Her expertise is centered on helping those with different types of anxiety disorders.  Although established in her field, she is looking to enhance her online presence via a newly created website.  Dr. Cisco is looking to build a website that is catered towards her target demographic.  In doing so, she will have an online location that allows her past, current, and future clients to learn about and interact with her service offerings.</p>
+			<h2 class="dark-treatment">A. <span>Company</span> Overview</h2>
+			<p>Dr. Cisco is a specialist within the discipline of psychology. Her expertise is centered on helping those with different types of anxiety disorders.  Although established in her field, she is looking to enhance her online presence via a newly created website.  Dr. Cisco is looking to build a website that is catered towards her target demographic.  In doing so, she will have an online location that allows her past, current, and future clients to learn about and interact with her service offerings.</p>
 		</div>
 	</section>
 
 	<section class="screen">
+		<?php include 'header.php'; ?>
 		<div class="container">
-			<h2 class="dark-treatment">Our Offer to Dr Cisco</h2>
+			<h2 class="dark-treatment">B. Our <span>Offer</span> to Dr Cisco</h2>
 			<p>As a Go-To-Market team, Business on Market St. (BMS) is positioned to assist Dr. Cisco with her ongoing growth requirements. After due diligence is completed, collaboration between both parties will result in the creation of a customized website with industry relevant information and messaging.</p>
 			<ul>
 				<li>Exercise due diligence to understand the market environment, competition, and growth goals of Dr. Cisco.</li>
@@ -54,24 +47,27 @@
 	</section>
 
 	<section class="screen">
+		<?php include 'header.php'; ?>
 		<div class="container">
-			<h2 class="dark-treatment">Desired Outcome</h2>
+			<h2 class="dark-treatment">C. Desired <span>Outcome</span></h2>
 			<p>By Contracting BMS, Dr. Cisco is positioned to gain access to a team of 10+ multidisciplinary marketing professionals without the burden of training and housing new staff. By producing all the requested work under one roof, Dr. Cisco would be able to improve its offerings from a financial, quality, and efficiency standpoint.</p>
 			<ul>
 				<li>Enhance the brand equity and interactivity of Dr. Cisco by streamlining her online infrastructure.</li>
-				<li>Expedite the continued growth of Dr. Cisco’s business through the minimization of extraneous costs and strategic cultivation of useful assets.</li>
+				<li>Expedite the continued growth of Dr. Cisco's business through the minimization of extraneous costs and strategic cultivation of useful assets.</li>
 				<li>Development of a longstanding business relationship on the basis of active cooperation and marked market improvement.</li>
 			</ul>
 		</div>
 	</section>
 
 	<section id="subway-map" class="screen square-treatment">
+		<?php include 'header.php'; ?>
 		<img src="images/instanciation/Subway_Map_CISCO.png">
 	</section>
 
 	<section class="screen">
+		<?php include 'header.php'; ?>
 		<div class="container">
-			<h2 class="dark-treatment">Services Rendered</h2>
+			<h2 class="dark-treatment">Services <span>Rendered</span></h2>
 			<table>
 				<thead>
 					<th>Service</th>
@@ -100,7 +96,10 @@
 						<td>
 							SEO
 							<ul>
-								<li></li>
+								<li>Analytics Monitoring</li>
+								<li>Webmaster Tools Management</li>
+								<li>Meta / Title Tags Maintinence</li>
+								<li>Content Management</li>
 							</ul>
 						</td>
 						<td>Ongoing</td>
@@ -118,7 +117,7 @@
 						</td>
 						<td></td>
 						<td>Month 1 Total: $5,500.00</td>
-						</tr>
+					</tr>
 					<tr class="odd-treatment">
 						<td>
 						</td>
@@ -139,27 +138,32 @@
 	?>
 
 	<section id="section-four-cover" class="screen">
+		<?php include 'header.php'; ?>
 		<div class="container">
 			<img src="images/section-four-moniker-light.png">
-			<h1 class="white-treatment">Work Samples</h1>
+			<h1 class="white-treatment">Work <span>Samples</span></h1>
 			<img class="sample-img" src="images/work-sample-cover.png">
 		</div>
 	</section>
 	
 
 	<section class="screen work-sample">
+		<?php include 'header.php'; ?>
 		<div class="container">
 			<img src="images/instanciation/BB1.png">
 			<img src="images/instanciation/BB2.png">
 			<img src="images/instanciation/BB3.png">
 			<div class="work-description">
 				<h3>Client // <span>BodyBeanz</span></h3>
-				<p>We Helped to create a fantastic website for bodybeanz. Over 17 page and several post launch updates.</p>
+				<ul>
+					<li>We Helped to create a fantastic website for bodybeanz. Over 17 page and several post launch updates.</li>
+				</ul>
 			</div>
 		</div>
 	</section>
 
 	<section class="screen work-sample">
+		<?php include 'header.php'; ?>
 		<div class="container">
 			<img src="images/instanciation/CEG1.png">
 			<img src="images/instanciation/CEG2.png">
@@ -177,6 +181,7 @@
 	</section>
 
 	<section class="screen work-sample">
+		<?php include 'header.php'; ?>
 		<div class="container">
 			<img src="images/instanciation/V1.png">
 			<img src="images/instanciation/V2.png">
@@ -195,14 +200,16 @@
 	</section>
 	
 	<section id="section-five-cover" class="screen">
+		<?php include 'header.php'; ?>
 		<div class="container">
 			<img src="images/section-five-moniker-dark.png">
-			<h1 class="dark-treatment">Get to Know your Team</h1>
+			<h1 class="dark-treatment"><span>Get</span> to Know your <span>Team</span></h1>
 			<img class="instanced" src="images/tie.png">
 		</div>
 	</section>
 
 	<section class="screen">
+		<?php include 'header.php'; ?>
 		<div class="container">
 			<div class="employee">
 				<img src="images/bob.png">
@@ -229,6 +236,7 @@
 	</section>
 
 	<section class="screen">
+		<?php include 'header.php'; ?>
 		<div class="container">
 			<div class="employee">
 				<img src="images/alvaro.png">
@@ -255,6 +263,7 @@
 	</section>
 
 	<section class="screen">
+		<?php include 'header.php'; ?>
 		<div class="container">
 			<div class="employee">
 				<img src="images/dan.png">

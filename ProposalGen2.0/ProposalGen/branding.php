@@ -1,4 +1,5 @@
 <section id="branding" class="screen discipline">
+	<?php include 'header.php'; ?>
 		<div class="container">
 			<h2 class="dark-treatment">Branding</h2>
 			<img class="icon" src="images/brand-icon.png">

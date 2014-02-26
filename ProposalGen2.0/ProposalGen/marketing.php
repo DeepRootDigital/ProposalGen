@@ -1,4 +1,5 @@
 <section id="marketing" class="screen discipline white">
+	<?php include 'header.php'; ?>
 		<div class="container">
 			<h2 class="white-treatment">Marketing</h2>
 			<img class="icon" src="images/mk-icon.png">

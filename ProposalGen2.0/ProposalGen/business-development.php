@@ -1,4 +1,5 @@
 <section id="business-development" class="screen discipline white">
+	<?php include 'header.php'; ?>
 		<div class="container">
 			<h2 class="white-treatment">Business Development</h2>
 			<img class="icon" src="images/bd-icon.png">

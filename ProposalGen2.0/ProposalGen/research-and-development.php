@@ -1,4 +1,5 @@
 <section id="research-and-planning" class="screen discipline">
+	<?php include 'header.php'; ?>
 	<div class="container">
 		<h2 class="dark-treatment">Research and Planning</h2>
 		<img class="icon" src="images/rd-icon.png">

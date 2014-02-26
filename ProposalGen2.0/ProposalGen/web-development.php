@@ -1,4 +1,5 @@
 <section id="web-development" class="screen discipline">
+	<?php include 'header.php'; ?>
 		<div class="container">
 			<h2 class="dark-treatment">Web Development</h2>
 			<img class="icon" src="images/wd-icon.png">
