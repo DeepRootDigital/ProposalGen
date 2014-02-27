@@ -115,6 +115,7 @@ nav {
 	color: #fff;
 	text-transform: uppercase;
 	float: right;
+	text-align: left !important;
 }
 
 nav a {
@@ -202,13 +203,30 @@ nav ul li {
 	position: relative;
 }
 
+.text-container {
+	padding-left: 110px;
+	padding-right:110px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.discipline-container {
+	padding-left: 150px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+
 .header {
 	width: 100%;
 	height: 110px;
 	background-image: url('images/header-texture.png');
 	display: block;
+	position: relative;
 	z-index: 10000;
-	margin-bottom:40px;
+	margin-bottom:80px;
 }
 
 .header img {
@@ -223,6 +241,10 @@ nav ul li {
 	box-sizing: border-box;
 }
 
+.text-container .discipline {
+	padding-right: 0px;
+}
+
 .discipline li {
 	padding-top:5px;
 	padding-bottom: 5px;
@@ -234,30 +256,43 @@ nav ul li {
 	padding-bottom: 5px;
 	text-transform: uppercase;
 	font-family: 'DIN Next W01 Light';
+	white-space:nowrap;
+}
+
+.discipline h2.dark-treatment {
+	border-bottom:1px solid #2c292a !important; 
+	line-height: 45px !important;
+}
+
+.discipline h2.white-treatment {
+	border-bottom:1px solid #fff !important; 
+	line-height: 45px !important;
 }
 
 .half-column {
 	width: 49.5%;
 	display: inline-block;
 	vertical-align: top;
+	padding-top: 15px;
 }
 
 .third-column {
 	width: 32.3%;
 	display: inline-block;
 	vertical-align: top;
+	padding-top: 15px;
 }
 
 .icon {
 	position: absolute;
-	top:0px;
+	top:-10px;
 	right:0px;
 }
 
 .sample-img {
 	position: absolute;
 	right:0px;
-	top:-40px;
+	top:-80px;
 }
 
 #cover {
@@ -279,8 +314,21 @@ nav ul li {
 	top:250px;
 }
 
+#section-three-cover h1 {
+	max-width: 500px;
+	margin-left:20px;
+}
+
+#section-three-cover .instanced {
+	position: absolute;
+	right:330px;
+	top:250px;
+}
+
 #section-four-cover {
 	background-color:#7e1417;
+	position: relative;
+	z-index:100000;
 }
 
 #section-four-cover h1 {
@@ -299,8 +347,9 @@ nav ul li {
 
 #section-five-cover .instanced {
 	position: absolute;
-	width: 100%;
-	left: 0px;
+	width: 75%;
+	right: 30px;
+	top: 130px;
 	z-index: -1;
 }
 
@@ -404,4 +453,28 @@ nav ul li {
 .employee-content p {
 	font-size: 14px;
 	line-height: 20px;
+}
+
+.sidebar-wrap {
+	height: 100%;
+	width: 245px;
+	left:0px;
+	margin-top:-110px;
+	background-color: #fff;
+	position: absolute;
+}
+
+.sidebar {
+	padding-top: 110px;
+	margin-left: -33px;
+}
+
+.icon-img {
+	width: 88px;
+	padding-left: 10px;
+	padding-right: 10px;
+	display: inline-block;
+	vertical-align: top;
+	padding-bottom: 50px;
+	padding-top: 30px;
 }

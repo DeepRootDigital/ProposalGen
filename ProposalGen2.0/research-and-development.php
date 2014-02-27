@@ -1,6 +1,9 @@
 <section id="research-and-planning" class="screen discipline">
 	<?php include 'header.php'; ?>
-	<div class="container">
+	<div class="sidebar-wrap">
+		<img src="images/sidebar.png" class="sidebar">
+	</div>
+	<div class="container discipline-container">
 		<h2 class="dark-treatment">Research and Planning</h2>
 		<img class="icon" src="images/rd-icon.png">
 		<div class="clearfix"></div>
@@ -42,10 +45,11 @@
 				<li>SWOT Analysis</li>
 				<li>Feasibility Analysis</li>
 				<li>Competition Analysis</li>
-				<li>Product Services</li>
+				<li>Product / Services</li>
 				<li>Distribution Points</li>
 				<li>Business Development</li>
 			</ul>
+			<p>*Branded / Non Branded</p>
 		</div>
 	</div>
 </section>
