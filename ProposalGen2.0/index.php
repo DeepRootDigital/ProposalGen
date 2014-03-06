@@ -9,53 +9,55 @@
 </head>
 <body>	
 	<section id="cover" class="screen">
-		<?php include 'header.php'; ?>
+		<?php get_header(); ?>
 		<div class="container">
 			<img src="images/cover-img.png">
 		</div>
 	</section>
 	<section id="section-two-cover" class="screen">
-		<?php include 'header.php'; ?>
+		<?php get_header(); ?>
 		<div class="container">
 			<img style="position:relative; z-index:1000;" src="images/section-two-moniker-dark.png">
-			<h1 class="white-treatment">Dr. Cisco<br/> <span>Overview</span></h1>
-			<img class="instanced" src="images/instanciation/steth.png">
+			<h1 class="dark-treatment">Astute <span>Inc.</span></h1>
+			<img class="instanced" src="images/instanciation/q2f-image.png">
 		</div>
 	</section>
 	<section class="screen">
-		<?php include 'header.php'; ?>
+		<?php get_header(); ?>
 		<div class="container text-container">
 			<h2 class="dark-treatment">A. <span>Company</span> Overview</h2>
-			<p>Dr. Cisco is a specialist within the discipline of psychology. Her expertise is centered on helping those with different types of anxiety disorders.  Although established in her field, she is looking to enhance her online presence via a newly created website that is catered towards her target demographic.  In doing so, she will have an online location that allows her past, current, and future clients to learn about and interact with her service offerings.</p></div>
+			<p>Astute Inc. is focused on creating technologically savvy devices within the healthcare industry.  With a rapidly expanding and aging global population, they are looking to make an impact with instruments commonly used by their target demographic.  Astute’s overall objective is to create patient monitoring solutions that not only improve patient outcomes, but also lower the cost of providing healthcare.</p>
+			<p>The research and development team of Astute has put together a suite of offerings that includes physical monitoring devices, cellular services, cloud solutions, and data reporting.  Their flagship product, the Astute Health Hub, integrates these offerings to provide a robust patient monitoring solution.  The device is relatively affordable and eliminates the high installation costs that come with similar products.  Astute Inc. continuously pushes the envelope for the integration of medical tools and emerging technologies.</p>
+		</div>
 		</section>
 		<section class="screen">
-			<?php include 'header.php'; ?>
+			<?php get_header(); ?>
 			<div class="container text-container">
-				<h2 class="dark-treatment">B. Our <span>Offer</span> to Dr Cisco</h2>
-				<p>As a Go-To-Market team, Business on Market St. (BMS) is positioned to assist Dr. Cisco with her ongoing growth requirements. After due diligence is completed, collaboration between both parties will result in the creation of a customized website with industry relevant information and messaging.</p>
+				<h2 class="dark-treatment">B. Our <span>Offer</span> to Astute Inc</h2>
+				<p>As a Go-To-Market team, Business on Market St. (BMS) is positioned to assist Astute with its ongoing growth requirements. After due diligence is completed, collaboration between both parties will result in the creation of a modernized brand. In addition, BMS will develop a customized 6 page website containing professionally written, marketing centric content.</p>
 				<p style="text-transform: uppercase;"><b>BMS Proposes to supply the following:</b></p>
 				<ul>
-					<li>Exercise due diligence to understand the market environment, competition, and growth goals of Dr. Cisco.</li>
-					<li>After the research is completed, BMS will create a modern website with a look and feel that resonates with Dr. Cisco’s target demographic.</li>
-					<li>As the new web asset is developed, BMS will pay special attention to generally increase the effectiveness and reach of her online presence.</li>
+					<li>Exercise due diligence to understand the market environment, competition, and growth goals of Astute.</li>
+					<li>When the research is completed, BMS will create a modern brand with a look and feel that resonates with Astute’s target demographic.</li>
+					<li>After the brand is fully developed, BMS will begin developing a web solution that generally increases the effectiveness of their online presence and messaging.</li>
 				</ul>
 			</div>
 		</section>
 		<section class="screen">
-			<?php include 'header.php'; ?>
+			<?php get_header(); ?>
 			<div class="container text-container">
 				<h2 class="dark-treatment">C. Desired <span>Outcome</span></h2>
-				<p>By Contracting BMS, Dr. Cisco is positioned to gain access to a team of 10+ multidisciplinary marketing professionals without the burden of training and housing new staff. By producing all the requested work under one roof, Dr. Cisco would be able to improve its offerings from a financial, quality, and efficiency standpoint.</p>
+				<p>By Contracting BMS, Astute is positioned to gain access to a team of 10+ multidisciplinary marketing professionals without the burden of training and housing new staff. By producing all the requested work under one roof, Astute would be able to improve its offerings from a financial, quality, and efficiency standpoint.</p>
 				<p style="text-transform: uppercase;"><b>BMS Anticipates the following:</b></p>
 				<ul>
-					<li>Enhance the brand equity and interactivity of Dr. Cisco by streamlining her online infrastructure.</li>
-					<li>Expedite the continued growth of Dr. Cisco's business through the minimization of extraneous costs and strategic cultivation of useful assets.</li>
+					<li>Enhance the brand equity and interactivity of Astute by streamlining their online infrastructure.</li>
+					<li>Expedite the continued growth of Astute through the minimization of extraneous costs and strategic cultivation of useful assets.</li>
 					<li>Development of a longstanding business relationship on the basis of active cooperation and marked market improvement.</li>
 				</ul>
 			</div>
 		</section>
 		<section id="section-three-cover" class="screen">
-			<?php include 'header.php'; ?>
+			<?php get_header(); ?>
 			<div class="container">
 				<img style="position:relative; z-index:1000;" src="images/section-three-moniker-dark.png">
 				<h1 class="dark-treatment"><span>Product</span> & Service<br/> Offerings</h1>
@@ -63,69 +65,68 @@
 			</div>
 		</section>
 		<section id="subway-map" class="screen square-treatment">
-			<?php include 'header.php'; ?>
+			<?php get_header(); ?>
 			<img src="images/instanciation/Subway_Map_CISCO.png">
 			<div class="container" style="text-align:left;">
-				<p style="padding-left:140px; margin-top:50px;">
-					<b>Milestones</b>
-				</p>
-				<ul>
-					<li>Week 1 - Theme Selection Completed</li>
-					<li>Week 2 - Content Delivery by Dr. Cisco</li>
-					<li>Week 3 - Edited Content Approval</li>
-					<li>Week 4 - Initial Comp Delivered</li>
-					<li>Week 5 - Launch</li>
-				</ul>
+		
 			</div>
 		</section>
 		<section class="screen">
-			<?php include 'header.php'; ?>
+			<?php get_header(); ?>
 			<div class="container text-container">
-				<h2 class="dark-treatment">Services <span>Rendered</span></h2>
+				<h2 class="dark-treatment">Service <span>Offering</span></h2>
 				<table>
 					<thead>
 						<th>Service</th>
 						<th>Timeframe</th>
-						<th>Subtotal</th>
+						<th style="text-align:right;">Subtotal</th>
 					</thead>
 					<tbody>
 						<tr class="odd-treatment">
 							<td>
-								8 Page Informational Website
+								Branding Package
 								<ul>
-									<li>Home</li>
-									<li>About</li>
-									<li>Services</li>
-									<li>Products</li>
-									<li>FAQ</li>
-									<li>Article Page</li>
-									<li>Contact Us</li>
-									<li>Are you a Doctor?</li>
+									<li>Logo</li>
+									<li>Branding Guide</li>
+									<li>Letterhead</li>
+									<li>Business Card Templates</li>
 								</ul>
 							</td>
 							<td>1 Month</td>
-							<td>$3,500.00 <span style="color:#7e1417;">(*Dr Cisco Provides Content)</span></td>
+							<td>$5,000.00</td>
 						</tr>
 						<tr class="odd-treatment">
 							<td>
-								Doctor Directory Updates / Corrections
+								6 Page Customized Informational Website
+								<ul>
+									<li>Home</li>
+									<li>About</li>
+									<li>Product</li>
+									<li>Blog Summary</li>
+									<li>Blog Detail</li>
+									<li>Contact Us</li>
+								</ul>
 							</td>
-							<td>Monthly</td>
-							<td>$250.00</td>
+							<td>2 Months</td>
+							<td>$10,000.00</td>
+						</tr>
+						<tr>
+							<td>Copywriting</td>
+							<td>1 Month</td>
+							<td>$375.00 Per Page / $2,250.00 Total</td>
 						</tr>
 						<tr>
 							<td>
 							</td>
 							<td></td>
-							<td><b style="color:#7e1417;">Total: $3,500.00 + $250.00 / Month</b></td>
+							<td><b style="color:#7e1417;">Total: $17,250.00</b></td>
 						</tr>
 					</tbody>
 				</table>
-				<p style="font-size: 14px;">*Besides the framework and general look and feel of a website, all webpages contain a mixture of text and images.  In order to create a website with the proper messaging, the content (text and images) must be delivered to the web developer.  After selecting the best theme suited for the website project, the developer typically will place “dummy” text and images until they are provided with the chosen web copy and stock photography.  This is what is meant by the idea that all website content must be provided by Dr. Cisco.  Essentially, BMS requires the literal text information and selected images to be place within the theme before launching the website.</p>
-			</div>
+				</div>
 		</section>
 		<section class="screen">
-			<?php include 'header.php'; ?>
+			<?php get_header(); ?>
 			<div class="container text-container">
 				<h2 class="dark-treatment">Additional Services</h2>
 				<p style="text-align:center;">
@@ -147,7 +148,7 @@
 		include 'business-development.php'; 
 		?>
 		<section id="section-four-cover" class="screen">
-			<?php include 'header.php'; ?>
+			<?php get_header(); ?>
 			<div class="container">
 				<img src="images/section-four-moniker-light.png">
 				<h1 class="white-treatment">Work <span>Samples</span></h1>
@@ -155,7 +156,7 @@
 			</div>
 		</section>
 		<section class="screen work-sample">
-			<?php include 'header.php'; ?>
+			<?php get_header(); ?>
 			<div class="container">
 				<img src="images/instanciation/BB1.png">
 				<img src="images/instanciation/BB2.png">
@@ -173,7 +174,7 @@
 			</div>
 		</section>
 		<section class="screen work-sample">
-			<?php include 'header.php'; ?>
+			<?php get_header(); ?>
 			<div class="container">
 				<img src="images/instanciation/CEG1.png">
 				<img src="images/instanciation/CEG2.png">
@@ -190,7 +191,7 @@
 			</div>
 		</section>
 		<section class="screen work-sample">
-			<?php include 'header.php'; ?>
+			<?php get_header(); ?>
 			<div class="container">
 				<img src="images/instanciation/V1.png">
 				<img src="images/instanciation/V2.png">
@@ -208,7 +209,7 @@
 			</div>
 		</section>
 		<section id="section-five-cover" class="screen">
-			<?php include 'header.php'; ?>
+			<?php get_header(); ?>
 			<div class="container">
 				<img src="images/section-five-moniker-dark.png">
 				<h1 class="dark-treatment"><span>Get</span> to Know your <span>Team</span></h1>
@@ -216,7 +217,7 @@
 			</div>
 		</section>
 		<section class="screen">
-			<?php include 'header.php'; ?>
+			<?php get_header(); ?>
 			<div class="container">
 				<div class="employee">
 					<img src="images/bob.png">
@@ -242,7 +243,7 @@
 			</div>
 		</section>
 		<section class="screen">
-			<?php include 'header.php'; ?>
+			<?php get_header(); ?>
 			<div class="container">
 				<div class="employee">
 					<img src="images/alvaro.png">
@@ -268,7 +269,7 @@
 			</div>
 		</section>
 		<section class="screen">
-			<?php include 'header.php'; ?>
+			<?php get_header(); ?>
 			<div class="container">
 				<div class="employee">
 					<img src="images/dan.png">
@@ -291,6 +292,12 @@
 						<p>While growing up playing baseball in the streets of his cul-de-sac, the coming of technology seemed as extraneous to Paul, as the fact that technology would end up becoming a primary influence within his life. That is until his family got their first computer. Then all bets were off and anything was possible. With the world at his fingertips, Paul recognizes his interest and endless opportunity within the complex network of computer technology. Fast-forwarding many years, Mr. McMahon continued to pursue his interest in computer technology earning a degree in Cognitive Sciences at the University of California at San Diego. As a junior web developer at BMS, Mr. McMahon concentrates on providing a unique human experience through seamless code and website creation from scratch. Paul's greatest pleasure is the pursuit of something better. Constantly improving his abilities, he works to produce the highest level of invention possible on anything that crosses his screen. That is one thing that will never change.</p>
 					</div>
 				</div>
+			</div>
+		</section>
+		<section class="screen">
+			<?php get_header(); ?>
+			<div class="container" style="text-align: center;">
+				<img src="images/BMS_contact.png">
 			</div>
 		</section>
 	</body>

@@ -1,5 +1,5 @@
 <section id="research-and-planning" class="screen discipline">
-	<?php include 'header.php'; ?>
+	<?php get_header(); ?>
 	<div class="sidebar-wrap">
 		<img src="images/sidebar.png" class="sidebar">
 	</div>

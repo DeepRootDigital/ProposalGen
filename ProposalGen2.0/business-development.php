@@ -1,5 +1,5 @@
 <section id="business-development" class="screen discipline white">
-	<?php include 'header.php'; ?>
+	<?php get_header(); ?>
 		<div class="sidebar-wrap">
 		<img src="images/sidebar.png" class="sidebar">
 	</div>

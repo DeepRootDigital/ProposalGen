@@ -94,6 +94,10 @@ thead {
 	font-size:22px;
 }
 
+tr td:last-of-type {
+	text-align: right;
+}
+
 td {
 	padding:10px;
 	font-size:14px;
@@ -300,7 +304,7 @@ nav ul li {
 }
 
 #section-two-cover {
-	background-color:#0887d7;
+	background-color:#fff;
 }
 
 #section-two-cover h1 {
