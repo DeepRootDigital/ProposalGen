@@ -1,5 +1,5 @@
 <section id="marketing" class="screen discipline white">
-	<?php get_header(); ?>
+	<?php include 'header.php'; ?>
 		<div class="sidebar-wrap">
 		<img src="images/sidebar.png" class="sidebar">
 	</div>
@@ -51,7 +51,7 @@
 	</div>
 </section>
 <section id="marketing" class="screen discipline white">
-	<?php get_header(); ?>
+	<?php include 'header.php'; ?>
 		<div class="sidebar-wrap">
 		<img src="images/sidebar.png" class="sidebar">
 	</div>

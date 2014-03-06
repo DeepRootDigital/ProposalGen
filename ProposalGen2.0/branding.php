@@ -1,5 +1,5 @@
 <section id="branding" class="screen discipline">
-	<?php get_header(); ?>
+	<?php include 'header.php'; ?>
 		<div class="sidebar-wrap">
 		<img src="images/sidebar.png" class="sidebar">
 	</div>

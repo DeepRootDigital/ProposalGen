@@ -482,3 +482,8 @@ nav ul li {
 	padding-bottom: 50px;
 	padding-top: 30px;
 }
+
+.smallfix li {
+	padding-top: 5px !important;
+	padding-bottom:5px !important;
+}
