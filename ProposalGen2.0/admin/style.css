@@ -1,0 +1,67 @@
+h1 {
+	font-size: 24px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 20px;
+}
+
+p, ul, ol, label {
+	font-size: 14px;
+}
+
+table {
+	width: 100%;
+	text-align: left;
+	border-collapse: collapse;
+	font-size: 14px;
+}
+
+thead th {
+	padding-bottom:20px;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #ccc;
+}
+
+.container {
+	width:1000px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.panel {
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.third {
+	width: 75%;
+}
+
+.sidebar {
+	width: 25%;
+}
+
+.parent {
+	font-size: 0;
+}
+
+.left-align {
+	padding-right: 20px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.right-align {
+	padding-left:20px;
+	display: inline-block;
+	vertical-align: top;
+}

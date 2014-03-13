@@ -10,7 +10,7 @@ html, html a {
 }
 
 body {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: 'Univers LT W01 45 Light';
 	color:#2c292a;
 	min-width: 1200px;
 }
@@ -26,8 +26,8 @@ p,ul,ol {
 }
 
 p {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	line-height: 24px;
+	font-family: 'Univers LT W01 45 Light';
+	line-height: 27px;
 }
 
 ul li {
@@ -162,7 +162,6 @@ nav ul li {
 }
 
 .dark-treatment {
-	display: inline-block;
 	vertical-align: top;
 	border-bottom: 2px solid #2c292a;
 	color:#2c292a;
@@ -310,6 +309,7 @@ nav ul li {
 #section-two-cover h1 {
 	max-width: 270px;
 	margin-left:20px;
+	display: inline-block;
 }
 
 #section-two-cover .instanced {
@@ -321,6 +321,7 @@ nav ul li {
 #section-three-cover h1 {
 	max-width: 500px;
 	margin-left:20px;
+	display: inline-block;
 }
 
 #section-three-cover .instanced {
@@ -347,6 +348,7 @@ nav ul li {
 #section-five-cover h1 {
 	max-width: 270px;
 	margin-left:20px;
+	display: inline-block;
 }
 
 #section-five-cover .instanced {
@@ -479,11 +481,14 @@ nav ul li {
 	padding-right: 10px;
 	display: inline-block;
 	vertical-align: top;
-	padding-bottom: 50px;
-	padding-top: 30px;
+	padding-bottom: 20px;
+	padding-top: 0px;
 }
 
-.smallfix li {
-	padding-top: 5px !important;
-	padding-bottom:5px !important;
+.icon-img:first-of-type {
+	padding-left: 0px;
+}
+
+.discipline-container h2 {
+	display:inline-block;
 }
