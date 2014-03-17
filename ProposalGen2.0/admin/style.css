@@ -26,7 +26,17 @@ thead th {
 }
 
 tbody tr:nth-child(odd) {
-  background-color: #ccc;
+	background-color: #ccc;
+}
+
+textarea {
+	font-size:14px;
+	resize:none;
+	min-height: 180px;
+}
+
+div {
+	font-size: 14px;
 }
 
 .container {
@@ -64,4 +74,22 @@ tbody tr:nth-child(odd) {
 	padding-left:20px;
 	display: inline-block;
 	vertical-align: top;
+}
+
+.content-editor input[type=text], .content-editor textarea {
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding:10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.content-editor input[type="submit"] {
+	padding:10px;
+	text-transform: uppercase;
+	clear:both;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }

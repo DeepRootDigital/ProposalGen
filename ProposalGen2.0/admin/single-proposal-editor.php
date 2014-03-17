@@ -21,7 +21,7 @@
 			</div>
 			<div class="sidebar right-align panel">
 				<h2>Add a New Proposal</h2>
-				<form method="get" action="http://localhost/proposalgen/admin/actions/addProposal.php">
+				<form method="get" action="http://localhost/proposalgen/admin/actions/proposal/addProposal.php">
 					<input type="text" name="name">
 					<button>Add New Proposal</button>
 				</form>

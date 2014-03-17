@@ -1,6 +1,6 @@
 <?php 
 
-include 'dbconnect.php';
+include '../dbconnect.php';
 
 if ($_REQUEST) {
 
