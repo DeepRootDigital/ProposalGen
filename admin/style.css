@@ -33,10 +33,16 @@ textarea {
 	font-size:14px;
 	resize:none;
 	min-height: 180px;
+	margin-top:5px;
+	margin-bottom:5px;
 }
 
 div {
 	font-size: 14px;
+}
+
+button {
+	margin-top:10px;
 }
 
 .container {
@@ -87,7 +93,6 @@ div {
 }
 
 .content-editor input[type="submit"] {
-	padding:10px;
 	text-transform: uppercase;
 	clear:both;
 	margin-top: 5px;
