@@ -1,38 +1,52 @@
-<!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title></title>
+	<title>BMS Proposal Gen - </title>
+	<link rel="stylesheet" type="text/css" href="normalize.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
 	<script type="text/javascript" src="http://fast.fonts.net/jsapi/8732fb8c-7669-455f-a795-b783768d6394.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/function.js"></script>
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/normalize.css" type="text/css" />
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css" type="text/css" />
+	<link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/8732fb8c-7669-455f-a795-b783768d6394.css">
+	<script type="text/javascript" src="function.js"></script>
 </head>
-<body>
-	<?php get_header(); ?>
-	<div class="view-wrap">
-		<?php include 'cover-1.php'; ?>
-		<?php dynamic_sidebar( 'section1slides' ); ?>
-		<?php include 'sect3cover.php'; ?> 
-		<?php dynamic_sidebar( 'definitionslides' ); ?>    
-		<?php include 'services-rendered.php'; ?>  
-		<?php include 'research.php'; ?>
-		<?php include 'branding.php'; ?>
-		<?php include 'business-development.php'; ?>
-		<?php include 'webdevelopment.php'; ?>
-		<?php include 'marketing.php'; ?>
-		<?php include 'marketing-cont.php'; ?>
-		<?php include 'sect4cover.php'; ?>
-		<?php include 'sample-page.php'; ?>
-		<?php include 'sample-page2.php'; ?>
-		<?php include 'sample-page3.php'; ?>
-		<?php include 'sect5cover.php'; ?>
-		<?php include 'team-page-one.php'; ?>
-		<?php include 'team-page-two.php'; ?>
-		<?php include 'team-page-three.php'; ?>
-		<?php include 'team-page-four.php'; ?>
-		<?php include 'team-page-five.php'; ?>
-	</div>
+<body>	
+	<section id="cover" class="screen">
+		<?php include 'header.php'; ?>
+		<div class="container">
+			<img src="images/cover-img.png">
+		</div>
+	</section>
+	<section id="section-two-cover" class="screen">
+		<?php include 'header.php'; ?>
+		<div class="container">
+			<img style="position:relative; z-index:1000;" src="images/section-two-moniker-dark.png">
+			<h1 class="dark-treatment">Astute <span>Inc.</span></h1>
+			<img class="instanced" src="images/instanciation/q2f-image.png">
+		</div>
+	</section>
+
+	<?php include 'content-template.php'; ?>
+
+	<section id="section-three-cover" class="screen">
+		<?php include 'header.php'; ?>
+		<div class="container">
+			<img style="position:relative; z-index:1000;" src="images/section-three-moniker-dark.png">
+			<h1 class="dark-treatment"><span>Product</span> & Service<br/> Offerings</h1>
+			<img class="instanced" src="images/big-bms-logo.png">
+		</div>
+	</section>
+
+	<?php include 'subway-map.php'; ?>
+	<?php include 'table-template.php'; ?>
+	<?php include 'alt-content-template.php'; ?>
+	<?php include 'discipline-section.php'; ?>
+	<?php include 'work-samples.php'; ?>
+	<?php include 'team-section.php'; ?>
+	<!-- BACK COVER -->
+	<section class="screen">
+		<?php include 'header.php'; ?>
+		<div class="container" style="text-align: center;">
+			<img src="images/BMS_contact.png">
+		</div>
+	</section>
 </body>
 </html>
