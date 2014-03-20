@@ -1,20 +1,23 @@
 <section class="screen">
-		<?php include 'header.php'; ?>
-		<div class="container text-container">
-			<p>
-				<img class="icon-img" src="images/servicepage-planning.png">
-				<img class="icon-img" src="images/servicepage-branding.png">
-				<img class="icon-img" src="images/servicepage-webdev.png">
-				<img class="icon-img" src="images/servicepage-marketing.png">
-				<img class="icon-img" src="images/servicepage-bd.png">
-			</p>
-			<h2 class="dark-treatment" style="display:block;"><span>//</span> Additional Services</h2>
-			<h3 style="display:inline-block; border:none;">Our Multidisciplinary Approach</h3>
-			<p>Business on Market Street engages a multidisciplinary approach that guides all of our efforts on your behalf. We keep your overall business growth goals in mind in everything we do. We integrate our efforts across all BMS departments to strengthen your strategic position in the marketplace. That integration directs how we put together just the right team of professionals for your project.</p>
+	<?php include 'header.php'; ?>
+	<div class="container text-container">
+		<p>
+			<img class="icon-img" src="images/servicepage-planning.png">
+			<img class="icon-img" src="images/servicepage-branding.png">
+			<img class="icon-img" src="images/servicepage-webdev.png">
+			<img class="icon-img" src="images/servicepage-marketing.png">
+			<img class="icon-img" src="images/servicepage-bd.png">
+		</p>
+		<h2 class="dark-treatment" style="display:block;"><span>//</span> Additional Services</h2>
+		<h3 style="display:inline-block; border:none;">Our Multidisciplinary Approach</h3>
+		<div>
+			<p class="paragraph-edit">Business on Market Street engages a multidisciplinary approach that guides all of our efforts on your behalf. We keep your overall business growth goals in mind in everything we do. We integrate our efforts across all BMS departments to strengthen your strategic position in the marketplace. That integration directs how we put together just the right team of professionals for your project.</p>
+			<div class="paragraph-edit-con"></div>
 		</div>
-	</section>
+	</div>
+</section>
 
-	<section id="research-and-planning" class="screen discipline">
+<section id="research-and-planning" class="screen discipline">
 	<?php include 'header.php'; ?>
 	<div class="sidebar-wrap">
 		<img src="images/sidebar.png" class="sidebar">
@@ -72,7 +75,7 @@
 
 <section id="branding" class="screen discipline">
 	<?php include 'header.php'; ?>
-		<div class="sidebar-wrap">
+	<div class="sidebar-wrap">
 		<img src="images/sidebar.png" class="sidebar">
 	</div>
 	<div class="container discipline-container">
@@ -118,7 +121,7 @@
 
 <section id="web-development" class="screen discipline">
 	<?php include 'header.php'; ?>
-		<div class="sidebar-wrap">
+	<div class="sidebar-wrap">
 		<img src="images/sidebar.png" class="sidebar">
 	</div>
 	<div class="container discipline-container">
@@ -181,7 +184,7 @@
 
 <section id="marketing" class="screen discipline white">
 	<?php include 'header.php'; ?>
-		<div class="sidebar-wrap">
+	<div class="sidebar-wrap">
 		<img src="images/sidebar.png" class="sidebar">
 	</div>
 	<div class="container discipline-container">
@@ -233,7 +236,7 @@
 </section>
 <section id="marketing" class="screen discipline white">
 	<?php include 'header.php'; ?>
-		<div class="sidebar-wrap">
+	<div class="sidebar-wrap">
 		<img src="images/sidebar.png" class="sidebar">
 	</div>
 	<div class="container discipline-container">
@@ -285,7 +288,7 @@
 
 <section id="business-development" class="screen discipline white">
 	<?php include 'header.php'; ?>
-		<div class="sidebar-wrap">
+	<div class="sidebar-wrap">
 		<img src="images/sidebar.png" class="sidebar">
 	</div>
 	<div class="container discipline-container">

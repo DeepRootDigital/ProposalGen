@@ -6,7 +6,6 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script type="text/javascript" src="http://fast.fonts.net/jsapi/8732fb8c-7669-455f-a795-b783768d6394.js"></script>
 	<link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/8732fb8c-7669-455f-a795-b783768d6394.css">
-	<script type="text/javascript" src="function.js"></script>
 </head>
 <body>	
 	<section id="cover" class="screen">
@@ -19,7 +18,10 @@
 		<?php include 'header.php'; ?>
 		<div class="container">
 			<img style="position:relative; z-index:1000;" src="images/section-two-moniker-dark.png">
-			<h1 class="dark-treatment">Astute <span>Inc.</span></h1>
+			<div class="header-editor">
+				<h1 class="dark-treatment paragraph-edit">Astute <span>Inc.</span></h1>
+				<div class="paragraph-edit-con"></div>
+			</div>
 			<img class="instanced" src="images/instanciation/q2f-image.png">
 		</div>
 	</section>
@@ -48,5 +50,15 @@
 			<img src="images/BMS_contact.png">
 		</div>
 	</section>
+	<div class="right-click-menu">
+		<ul>
+			<li>Content Before</li>
+			<li>Content After</li>
+			<li>Alt Content Before</li>
+			<li>Alt Content After</li>
+		</ul>
+	</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript" src="function.js"></script>
 </body>
 </html>
