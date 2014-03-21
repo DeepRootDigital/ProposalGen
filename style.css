@@ -492,3 +492,19 @@ nav ul li {
 .discipline-container h2 {
 	display:inline-block;
 }
+
+/* Editor */
+
+.header-editor {
+	display:inline-block;
+	vertical-align:top;
+}
+
+.right-click-menu {
+	width:400px;
+	height:200px;
+	background-color:#ababab;
+	position:fixed;
+	display:none;
+	z-index:100000000000000;
+}
