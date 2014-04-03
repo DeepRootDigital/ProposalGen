@@ -77,19 +77,19 @@ function addBindings() {
 
 
 function SavetoDB() {
-  var Content = $('body').html();
+  var Content = $('#editor-exclusion').html();
 
   var request = $.ajax({
     url: 'http://localhost/proposalgen/actions/update.php',
     type: 'POST',
     data: {
-      name: 'q2f',
+      name: $('#name').val(),
       content: Content,
     },
     error: function(req, status, error) { }
   });
 
   request.done(function(msg) {
-    $("body").html(msg);          
+    $("#editor-exclusion").html(msg);          
   });
 }
