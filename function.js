@@ -80,7 +80,7 @@ function SavetoDB() {
   var Content = $('#editor-exclusion').html();
 
   var request = $.ajax({
-    url: 'http://localhost/proposalgen/actions/update.php',
+    url: '/proposalgen/actions/update.php',
     type: 'POST',
     data: {
       name: $('#name').val(),

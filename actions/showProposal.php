@@ -7,7 +7,7 @@ if (isset($_REQUEST['name'])) {
 	$name = $_REQUEST['name'];
 }
 else {
-	header('Location: http://localhost/proposalgen/blank.php');
+	header('Location:'.$_SERVER['SERVER_NAME'].'/blank.php');
 	exit;
 }
 

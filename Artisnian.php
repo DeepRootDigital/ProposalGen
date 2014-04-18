@@ -15,15 +15,14 @@
 				<img src="images/cover-img.png">
 			</div>
 		</section>
-		<section id="section-two-cover" class="screen">
+		<section id="section-two-cover" class="screen" style="background-image:url('http://p1.pichost.me/i/33/1562936.jpg');">
 			<?php include 'header.php'; ?>
 			<div class="container">
 				<img style="position:relative; z-index:1000;" src="images/section-two-moniker-dark.png">
 				<div class="header-editor">
-					<h1 class="dark-treatment paragraph-edit">Artinian <span>Gems</span></h1>
+					<h1 class="dark-treatment paragraph-edit">Artinian Gems</h1>
 					<div class="paragraph-edit-con"></div>
 				</div>
-				<img class="instanced" src="http://www.artiniandiamonds.com/skin/artinian/images/thumbnail-img1.gif">
 			</div>
 		</section>
 
@@ -83,16 +82,25 @@
 			</div>
 		</section>
 
-		<?php include 'subway-map.php'; ?>
-		<?php include 'table-template.php'; ?>
+		<section id="subway-map" class="screen square-treatment">
+	<?php include 'header.php'; ?>
+	<div class="container text-container" style="">
+				<h2 class="dark-treatment" style="display:block;"><span>//</span> Scope of Work</h2>
+				<h3 style="display:inline-block; border:none;">Artinian Gems - Subway Map</h3>
+			</div>
+	<img src="images/instanciation/subway-map.png">
+	<div class="container" style="text-align:left;">
+		<!-- PUT CONTENT HERE -->
+	</div>
+</section>
 
 		<section class="screen">
 			<?php include 'header.php'; ?>
 			<div class="container text-container">
 				<h2 class="dark-treatment" style="display:block;"><span>//</span> Unique Value Proposition</h2>
 				<h3 style="display:inline-block; border:none;">Our Multidisciplinary Approach</h3>
-				<p>Business On Market St. (BMS) is a boutique brand-marketing agency that specializes in helping clients from startups to established leaders take new business concepts or products to market & scale existing products / services.</p>
-				<p>By providing industry leading research and planning, design, marketing, branding, web solutions, and business development- BMS is a Go to Market agency that assists small to midsized businesses as well as established leaders.</p>
+				<p>Business On Market St. (BMS) is a boutique brand-marketing agency that specializes in helping startups to established leaders take new business concepts and products to market or scale existing products / services.</p>
+				<p>By providing industry leading research and planning, design, marketing, branding, web solutions, and business development- BMS is a Go to Market agency that assists small to midsized businesses as well as more seasoned companies.</p>
 				<p>In partnership with Artinian Gems, we would like the opportunity help your company achieve its goal of creating two customized websites.  While both include e-commerce functionality, the first website shall include a B2B portal and the second will be catered towards the end consumer.</p>
 			</div>
 		</section>
@@ -139,9 +147,9 @@
 				<img class="icon-img" src="images/servicepage-webdev.png">
 				<h2 class="dark-treatment" style="display:block;"><span>//</span> Scope of Work</h2>
 				<h3 style="display:inline-block; border:none;">II. Website Strategy</h3>
-				<p>BMS will create and design sitemaps and wireframes that will create the strategic direction of the website.</p>
+				<p>BMS will design sitemaps and wireframes that will create the strategic direction of the website.</p>
 				<ul>
-					<li>Site Map – one created version with up to one round of revisions</li>
+					<li>Site Map – one version with up to one round of revisions</li>
 					<li>Desktop Wireframes – after a theme is selected to customize, mockups for each unique page of the website will be delivered.  These will include the hierarchy and juxtaposition for individual elements on the website.</li>
 				</ul>
 			</div>
@@ -157,7 +165,7 @@
 				<p>The Artinian Gems’ brand as applied to the website will be the foundation for all future assets created. It is helpful if Artinian Gems is able to provide all current design assets and any branding/style guide that may exist.  Under our creative process, we believe an effective website design is meant to be an intellectual conversation between the graphic asset and a consumer. Therefore, BMS will strive to create an emotional and business connection between the clients target market and the design and messaging of the newly created website.</p>
 				<ul>
 					<li>After the initial web page design is presented, BMS will facilitate up to two (2) rounds of revisions on the design (within the theme’s limitations)</li>
-					<li>BMS will create a collection of Web Graphics that will help optimize and proliferate Client’s online presence.</li>
+					<li>BMS will create a collection of Web Graphics that will help optimize and expand Client’s online presence.</li>
 					<li>If necessary, a stock photography budget will need to be established prior to the commencement of any web project.</li>
 					<li>Photo and image editing will be provided for up to five (5) graphic assets used on the website</li>	
 				</ul>
@@ -189,7 +197,7 @@
 				<ul>
 					<li>Display code utilizing HTML5/CSS3/JavaScript or any other web development language required that is built on standard open source technology </li>
 					<li>Using templates and style sheet to build out all pages of the site while ensuring brand consistency</li>
-					<li>Custom developed website wrapped into a CMS with user friendly control options</li>
+					<li>Customized website wrapped into a CMS with user friendly control options</li>
 					<li>Integration with Google Analytics </li>
 					<li>Source and implement plugins necessary to deliver the desired functionality for the new Artinian Gems Website.</li>
 				</ul>
@@ -205,10 +213,6 @@
 				<h2 class="dark-treatment" style="display:block;"><span>//</span> Scope of Work</h2>
 				<h3 style="display:inline-block; border:none;">VI. Analytics</h3>
 				<p>BMS will implement Google Analytics to provide basic metrics, such as page views, and time on site. The following documentation and actions are required as part of establishing basic analytics and necessary adjustments to the site into the future.</p>
-				<ul>
-					<li>Development of business requirements – up to one round of revisions </li>
-					<li>Implementation document - up to one round of revisions</li>
-				</ul>
 				<i>Note: Ongoing maintenance of site analytics and monthly analytics reporting is not included and can be priced upon request..</i>
 			</div>
 		</section>
@@ -220,7 +224,6 @@
 				<img class="icon-img" src="images/servicepage-webdev.png">
 				<h2 class="dark-treatment" style="display:block;"><span>//</span> Scope of Work</h2>
 				<h3 style="display:inline-block; border:none;">VII.	Testing, Quality Control, and Delivery</h3>
-				<p>BMS will implement Google Analytics to provide basic metrics, such as page views, and time on site. The following documentation and actions are required as part of establishing basic analytics and necessary adjustments to the site into the future.</p>
 				<ul>
 					<li>Testing – Interactive and final end-to-end testing will be conducted to ensure:
 						<ul>
@@ -279,7 +282,7 @@
 				<h2 class="dark-treatment" style="display:block;"><span>//</span> Roles and Responsibility </h2>
 				<p>Artinian Gems will provide BMS’s account manager with a single point of contact who is responsible for collecting and providing necessary assets and information.</p>
 				<b>Project Requires the Following Assets and Information From the Client:</b>
-				<ul>-
+				<ul>
 					<li>Any graphical assets and/or branding/style guide</li>
 					<li>Web hosting information</li>
 					<li>Website content</li>
@@ -302,6 +305,79 @@
 					<li>Ongoing analytical reports</li>
 					<li>Ongoing SEO and relevant reporting</li>
 				</ul>
+			</div>
+		</section>
+
+		<section class="screen">
+			<?php include 'header.php'; ?>
+			<div class="container text-container">
+				<div>
+					<h2 class="dark-treatment paragraph-edit">Service <span>Offering</span></h2>
+					<div class="paragraph-edit-con"></div>
+				</div>
+				<div>
+					<table class="paragraph-edit">
+						<thead>
+							<th>Service</th>
+							<th>Timeframe</th>
+							<th style="text-align:right;">Subtotal</th>
+						</thead>
+						<tbody>
+							<tr class="odd">
+								<td class="big">B2B Ecommerce Website</td>
+								<td class="big">2 MOS</td>
+								<td class="big">$5,000</td>
+							</tr>
+							<tr>
+								<td class="big">Advanced Functionality Portal</td>
+								<td class="big">2 MOS</td>
+								<td class="big">$6,000</td>
+							</tr>
+							<tr class="odd">
+								<td class="big">B2C Ecommerce website replication</td>
+								<td class="big">1 MO</td>
+								<td class="big">$3,500</td>
+							</tr>
+							<tr>
+								<td class="big">Project Management</td>
+								<td class="big">Ongoing</td>
+								<td class="big">$1,450</td>
+							</tr>
+							<tr class="odd">
+								<td><h4 class="red">Subtotal:</h4></td>
+								<td></td>
+								<td class="big">$15,950</td>
+							</tr>
+							<tr>
+								<td><h4 class="red">BMS Contribution:</h4></td>
+								<td></td>
+								<td class="red">($2,500)</td>
+							</tr>
+							<tr class="odd">
+								<td><h4 class="red">Total:</h4></td>
+								<td></td>
+								<td class="big"><b>$13,450</b></td>
+							</tr>
+							<tr>
+								<td>Payment 1:</td>
+								<td>Due at start (4/15/14)</td>
+								<td>$4,500</td>
+							</tr>
+							<tr>
+								<td>Payment 2:</td>
+								<td>45 days after start (6/1/14)</td>
+								<td>$4,500</td>
+							</tr>
+							<tr>
+								<td>Payment 3:</td>
+								<td>Upon completion</td>
+								<td>$4,450</td>
+							</tr>
+						</tbody>
+					</table>
+					<p>Total Timeframe: 3 MOS</p>
+					<div class="paragraph-edit-con"></div>
+				</div>
 			</div>
 		</section>
 
