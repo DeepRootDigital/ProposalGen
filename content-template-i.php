@@ -5,12 +5,14 @@
     <div class="paragraph-edit-con"></div>
   </div>
   <div>
-    <p class="paragraph-edit">Astute Inc. is focused on creating technologically savvy devices within the healthcare industry.  With a rapidly expanding and aging global population, they are looking to make an impact with instruments commonly used by their target demographic.  Astute’s overall objective is to create patient monitoring solutions that not only improve patient outcomes, but also lower the cost of providing healthcare.</p>
-    <div class="paragraph-edit-con">
-    </div>
-  </div>
-  <div>
-    <p class="paragraph-edit">The research and development team of Astute has put together a suite of offerings that includes physical monitoring devices, cellular services, cloud solutions, and data reporting.  Their flagship product, the Astute Health Hub, integrates these offerings to provide a robust patient monitoring solution.  The device is relatively affordable and eliminates the high installation costs that come with similar products.  Astute Inc. continuously pushes the envelope for the integration of medical tools and emerging technologies.</p>
-    <div class="paragraph-edit-con"></div>
-  </div>
+   <p class="paragraph-edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+   <div class="paragraph-edit-con">
+   </div>
+ </div>
+ <div>
+  <p class="paragraph-edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <div class="paragraph-edit-con"></div>
 </div>
+</div>
+
+
