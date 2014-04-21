@@ -73,8 +73,6 @@ function addBindings() {
       $(this).remove();
     });
   });
-<<<<<<< HEAD
-=======
 }
 
 
@@ -94,5 +92,4 @@ function SavetoDB() {
   request.done(function(msg) {
     $("#editor-exclusion").html(msg);          
   });
->>>>>>> NewGenIndev
 }

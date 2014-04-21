@@ -8,7 +8,6 @@
 	<link type="text/css" rel="stylesheet" href="http://fast.fonts.net/cssapi/8732fb8c-7669-455f-a795-b783768d6394.css">
 </head>
 <body>	
-<<<<<<< HEAD
 	<section id="cover" class="screen">
 		<?php include 'header.php'; ?>
 		<div class="container">
@@ -61,11 +60,9 @@
 	</div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script type="text/javascript" src="function.js"></script>
-=======
 	<div id="editor-exclusion">
 		<?php include '/actions/showProposal.php'; ?>
 	</div>
 	<?php include 'editor.php'; ?>
->>>>>>> NewGenIndev
 </body>
 </html>
