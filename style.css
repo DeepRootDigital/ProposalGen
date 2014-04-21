@@ -9,6 +9,10 @@ html, html a {
 	-webkit-font-smoothing: antialiased !important;
 }
 
+i {
+	font-style: italic !important;
+}
+
 body {
 	font-family: 'Univers LT W01 45 Light';
 	color:#2c292a;
@@ -62,6 +66,7 @@ h3 {
 	font-size: 16px;
 	border-bottom: 1px solid #2c292a;
 	padding-bottom: 5px;
+	font-weight: bold;
 }
 
 h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
@@ -99,9 +104,18 @@ tr td:last-of-type {
 }
 
 td {
-	padding:10px;
+	padding:5px;
 	font-size:14px;
-	font-weight: bold;
+}
+
+tr td:first-of-type {
+	max-width: 300px;
+}
+
+td h4 {
+	font-size: 22px;
+	padding:10px;
+	padding-left: 0px;
 }
 
 td ul {
@@ -303,11 +317,11 @@ nav ul li {
 }
 
 #section-two-cover {
-	background-color:#fff;
+	background-size:cover;
 }
 
 #section-two-cover h1 {
-	max-width: 270px;
+	max-width: 310px;
 	margin-left:20px;
 	display: inline-block;
 }
@@ -507,4 +521,88 @@ nav ul li {
 	position:fixed;
 	display:none;
 	z-index:100000000000000;
+<<<<<<< HEAD
+=======
+}
+
+textarea {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	max-width: 930px;
+	height:100%;
+	z-index: 999999;
+}
+
+.editor {
+	position: fixed;
+	left: 0px;
+	bottom: 0px;
+	z-index: 999999999999999999;
+	width: 100%;
+	background-color:#ccc;
+	padding:20px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#new {
+	float:right;
+}
+
+form {
+	display: inline-block;
+}
+
+.shorten li {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.red {
+	color: #7e1417;
+	padding-left: 200px;
+	font-size:22px;
+}
+
+.big {
+	font-size:22px;
+}
+
+.odd {
+	background-color: #ccc;
+}
+
+
+.condensed li {
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+
+.column {
+	width: 50%;
+	display: inline-block;
+	vertical-align: top;
+	float:left;
+	 -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+.column:last-of-type {
+	padding-left: 40px;
+}
+
+.overlay {
+	display: inline-block;
+	background-color: #fff;
+	opacity:.85;
+	padding:30px;
+}
+
+.map {
+	position: relative;
+	top:0px;
+	left:0px;
+>>>>>>> NewGenIndev
 }

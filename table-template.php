@@ -1,8 +1,12 @@
 <section class="screen">
 		<?php include 'header.php'; ?>
 		<div class="container text-container">
-			<h2 class="dark-treatment">Service <span>Offering</span></h2>
-			<table>
+			<div>
+			<h2 class="dark-treatment paragraph-edit">Service <span>Offering</span></h2>
+			<div class="paragraph-edit-con"></div>
+		</div>
+			<div>
+			<table class="paragraph-edit">
 				<thead>
 					<th>Service</th>
 					<th>Timeframe</th>
@@ -50,5 +54,7 @@
 					</tr>
 				</tbody>
 			</table>
+			<div class="paragraph-edit-con"></div>
+		</div>
 		</div>
 	</section>

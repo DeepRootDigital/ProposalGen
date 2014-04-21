@@ -73,4 +73,26 @@ function addBindings() {
       $(this).remove();
     });
   });
+<<<<<<< HEAD
+=======
+}
+
+
+function SavetoDB() {
+  var Content = $('#editor-exclusion').html();
+
+  var request = $.ajax({
+    url: '/proposalgen/actions/update.php',
+    type: 'POST',
+    data: {
+      name: $('#name').val(),
+      content: Content,
+    },
+    error: function(req, status, error) { }
+  });
+
+  request.done(function(msg) {
+    $("#editor-exclusion").html(msg);          
+  });
+>>>>>>> NewGenIndev
 }
