@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Proposal App</title>
+  <meta name="description" content="BMS Meme Generator in app form.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+
+  <link rel="stylesheet" href="stylesheets/normalize.css">
+  <link rel="stylesheet" href="stylesheets/main.css">
+</head>
+<body>
+  <!--[if lt IE 8]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    
+    <div class="content-container">
+      <div class="left-container">
+        <div class="row">
+          <p>Client Name:</p>
+          <input type="text" name="clientname" id="clientname" value="clientname">
+        </div>
+        <div class="row">
+          <button id="addTitleText">Add TitleText</button>
+          <button id="addTitleTextSubList">Add TitleTextSubList</button>
+          <button id="addTitleSubText">Add TitleSubText</button>
+          <button id="addIconsTitleSubText">Add IconsTitleSubText</button>
+          <button id="addIconsTitleSubTextList">Add IconsTitleSubTextList</button>
+          <button id="addTable">Add Table Page</button>
+        </div>
+        <div class="row pages">
+          <div class="pages-container" id="sortable">
+            <section class="page coverpage">
+              <p>Cover Page</p>
+            </section>
+            <section class="page sectiontwocover">
+              <p>Section Two Cover Page</p>
+              <p>Background Color</p>
+              <input class="color section-two-color" value="ffffff">
+              <p>Client Icon Image</p>
+              <div id="dropzone"></div>
+              <div class="section-two-selection"><p></p></div>
+              <div class="section-two-image-width"><p>200</p></div>
+            </section>
+            <section class="page titletext">
+              <button class="delete">X</button>
+              <p>Title Text Page</p>
+              <input type="text" class="page-title" value="A. Company Overview">
+              <textarea class="page-text" placeholder="page text"></textarea>
+            </section>
+            <section class="page titletextsublist">
+              <button class="delete">X</button>
+              <p>Title Text Sub List Page</p>
+              <input type="text" class="page-title" value="B. Our offer to Company Name Here">
+              <textarea class="page-text" placeholder="page text"></textarea>
+              <input type="text" class="page-sub" value="BMS Proposes to supply the following:">
+              <input type="text" class="page-list" placeholder="page listelement">
+              <input type="text" class="page-list" placeholder="page listelement">
+              <input type="text" class="page-list" placeholder="page listelement">
+            </section>
+            <section class="page titletextsublist">
+              <button class="delete">X</button>
+              <p>Title Text Sub List Page</p>
+              <input type="text" class="page-title" value="B. Desired Outcome">
+              <textarea class="page-text" placeholder="page text"></textarea>
+              <input type="text" class="page-sub" value="BMS anticipates the following:">
+              <input type="text" class="page-list" placeholder="page listelement">
+              <input type="text" class="page-list" placeholder="page listelement">
+              <input type="text" class="page-list" placeholder="page listelement">
+            </section>
+            <section class="page sectionthreecover">
+              <p>Section Three Cover Page</p>
+            </section>
+            <section class="page titlesubtext">
+              <button class="delete">X</button>
+              <p>Title Sub Text Page</p>
+              <input type="text" class="page-title" value="Unique Value Proposition">
+              <input type="text" class="page-sub" value="Our Multidisciplinary Approach">
+              <textarea class="page-text" placeholder="page text"></textarea>
+            </section>
+            <section class="page iconstitlesubtext">
+              <button class="delete">X</button>
+              <p>Icons Title Sub Text Page</p>
+              <span>Business Development</span><input type="checkbox" class="page-icons" checked>
+              <span>Branding</span><input type="checkbox" class="page-icons" checked>
+              <span>Research &amp; Planning</span><input type="checkbox" class="page-icons" checked>
+              <span>Marketing</span><input type="checkbox" class="page-icons" checked>
+              <span>Web Development</span><input type="checkbox" class="page-icons" checked>
+              <input type="text" class="page-title" value="Scope of Work">
+              <input type="text" class="page-sub" value="Our Multidisciplinary Approach">
+              <textarea class="page-text" placeholder="page text"></textarea>
+            </section>
+            <section class="page iconstitlesubtextlist">
+              <button class="delete">X</button>
+              <p>Icons Title Sub Text Page</p>
+              <span>Business Development</span><input type="checkbox" class="page-icons">
+              <span>Branding</span><input type="checkbox" class="page-icons">
+              <span>Research &amp; Planning</span><input type="checkbox" class="page-icons" checked>
+              <span>Marketing</span><input type="checkbox" class="page-icons" checked>
+              <span>Web Development</span><input type="checkbox" class="page-icons">
+              <input type="text" class="page-title" value="Scope of Work">
+              <input type="text" class="page-sub" value="I. Discovery &amp; Strategic Direction">
+              <textarea class="page-text" placeholder="page text"></textarea>
+              <input type="text" class="page-list" placeholder="page listelement">
+              <input type="text" class="page-list" placeholder="page listelement">
+              <input type="text" class="page-list" placeholder="page listelement">
+            </section>
+            <section class="page iconstitlesubtextlist">
+              <button class="delete">X</button>
+              <p>Icons Title Sub Text Page</p>
+              <span>Business Development</span><input type="checkbox" class="page-icons">
+              <span>Branding</span><input type="checkbox" class="page-icons">
+              <span>Research &amp; Planning</span><input type="checkbox" class="page-icons" checked>
+              <span>Marketing</span><input type="checkbox" class="page-icons" checked>
+              <span>Web Development</span><input type="checkbox" class="page-icons" checked>
+              <input type="text" class="page-title" value="Scope of Work">
+              <input type="text" class="page-sub" value="II. Website Strategy">
+              <textarea class="page-text" placeholder="page text"></textarea>
+              <input type="text" class="page-list" placeholder="page listelement">
+              <input type="text" class="page-list" placeholder="page listelement">
+              <input type="text" class="page-list" placeholder="page listelement">
+            </section>
+            <section class="page iconstitlesubtextlist">
+              <button class="delete">X</button>
+              <p>Icons Title Sub Text Page</p>
+              <span>Business Development</span><input type="checkbox" class="page-icons">
+              <span>Branding</span><input type="checkbox" class="page-icons" checked>
+              <span>Research &amp; Planning</span><input type="checkbox" class="page-icons">
+              <span>Marketing</span><input type="checkbox" class="page-icons">
+              <span>Web Development</span><input type="checkbox" class="page-icons" checked>
+              <input type="text" class="page-title" value="Scope of Work">
+              <input type="text" class="page-sub" value="III. Design &amp; Creative">
+              <textarea class="page-text" placeholder="page text"></textarea>
+              <input type="text" class="page-list" placeholder="page listelement">
+              <input type="text" class="page-list" placeholder="page listelement">
+              <input type="text" class="page-list" placeholder="page listelement">
+            </section>
+            <section class="page iconstitlesubtext">
+              <button class="delete">X</button>
+              <p>Icons Title Sub Text Page</p>
+              <span>Business Development</span><input type="checkbox" class="page-icons" checked>
+              <span>Branding</span><input type="checkbox" class="page-icons">
+              <span>Research &amp; Planning</span><input type="checkbox" class="page-icons">
+              <span>Marketing</span><input type="checkbox" class="page-icons" checked>
+              <span>Web Development</span><input type="checkbox" class="page-icons" checked>
+              <input type="text" class="page-title" value="Scope of Work">
+              <input type="text" class="page-sub" value="IV. Website Copywriting &amp; Search Engine Optimization">
+              <textarea class="page-text" placeholder="page text"></textarea>
+            </section>
+            <section class="page iconstitlesubtextlist">
+              <button class="delete">X</button>
+              <p>Icons Title Sub Text Page</p>
+              <span>Business Development</span><input type="checkbox" class="page-icons">
+              <span>Branding</span><input type="checkbox" class="page-icons">
+              <span>Research &amp; Planning</span><input type="checkbox" class="page-icons">
+              <span>Marketing</span><input type="checkbox" class="page-icons">
+              <span>Web Development</span><input type="checkbox" class="page-icons" checked>
+              <input type="text" class="page-title" value="Scope of Work">
+              <input type="text" class="page-sub" value="V. Website Development">
+              <textarea class="page-text" placeholder="page text"></textarea>
+              <input type="text" class="page-list" placeholder="page listelement">
+              <input type="text" class="page-list" placeholder="page listelement">
+              <input type="text" class="page-list" placeholder="page listelement">
+            </section>
+            <section class="page iconstitlesubtextlist">
+              <button class="delete">X</button>
+              <p>Icons Title Sub Text Page</p>
+              <span>Business Development</span><input type="checkbox" class="page-icons">
+              <span>Branding</span><input type="checkbox" class="page-icons">
+              <span>Research &amp; Planning</span><input type="checkbox" class="page-icons">
+              <span>Marketing</span><input type="checkbox" class="page-icons" checked>
+              <span>Web Development</span><input type="checkbox" class="page-icons" checked>
+              <input type="text" class="page-title" value="Scope of Work">
+              <input type="text" class="page-sub" value="VI. Analytics">
+              <textarea class="page-text" placeholder="page text"></textarea>
+              <input type="text" class="page-list" placeholder="page listelement">
+              <input type="text" class="page-list" placeholder="page listelement">
+              <input type="text" class="page-list" placeholder="page listelement">
+            </section>
+            <section class="page iconstitlesubtextlist">
+              <button class="delete">X</button>
+              <p>Icons Title Sub Text Page</p>
+              <span>Business Development</span><input type="checkbox" class="page-icons">
+              <span>Branding</span><input type="checkbox" class="page-icons">
+              <span>Research &amp; Planning</span><input type="checkbox" class="page-icons" checked>
+              <span>Marketing</span><input type="checkbox" class="page-icons">
+              <span>Web Development</span><input type="checkbox" class="page-icons" checked>
+              <input type="text" class="page-title" value="Scope of Work">
+              <input type="text" class="page-sub" value="VII. Testing, Quality Control, and delivery">
+              <textarea class="page-text" placeholder="page text"></textarea>
+              <input type="text" class="page-list" placeholder="page listelement">
+              <input type="text" class="page-list" placeholder="page listelement">
+              <input type="text" class="page-list" placeholder="page listelement">
+            </section>
+            <section class="page iconstitlesubtextlist">
+              <button class="delete">X</button>
+              <p>Icons Title Sub Text Page</p>
+              <span>Business Development</span><input type="checkbox" class="page-icons">
+              <span>Branding</span><input type="checkbox" class="page-icons">
+              <span>Research &amp; Planning</span><input type="checkbox" class="page-icons" checked>
+              <span>Marketing</span><input type="checkbox" class="page-icons">
+              <span>Web Development</span><input type="checkbox" class="page-icons">
+              <input type="text" class="page-title" value="Scope of Work">
+              <input type="text" class="page-sub" value="VIII. Project Management">
+              <textarea class="page-text" placeholder="page text"></textarea>
+              <input type="text" class="page-list" placeholder="page listelement">
+              <input type="text" class="page-list" placeholder="page listelement">
+              <input type="text" class="page-list" placeholder="page listelement">
+            </section>
+            <section class="page iconstitlesubtextlist">
+              <button class="delete">X</button>
+              <p>Icons Title Sub Text Page</p>
+              <span>Business Development</span><input type="checkbox" class="page-icons" checked>
+              <span>Branding</span><input type="checkbox" class="page-icons">
+              <span>Research &amp; Planning</span><input type="checkbox" class="page-icons">
+              <span>Marketing</span><input type="checkbox" class="page-icons">
+              <span>Web Development</span><input type="checkbox" class="page-icons" checked>
+              <input type="text" class="page-title" value="Scope of Work">
+              <input type="text" class="page-sub" value="IX. Training">
+              <textarea class="page-text" placeholder="page text"></textarea>
+              <input type="text" class="page-list" placeholder="page listelement">
+              <input type="text" class="page-list" placeholder="page listelement">
+              <input type="text" class="page-list" placeholder="page listelement">
+            </section>
+            <section class="page iconstitlesubtextlist">
+              <button class="delete">X</button>
+              <p>Icons Title Sub Text Page</p>
+              <span>Business Development</span><input type="checkbox" class="page-icons" checked>
+              <span>Branding</span><input type="checkbox" class="page-icons">
+              <span>Research &amp; Planning</span><input type="checkbox" class="page-icons">
+              <span>Marketing</span><input type="checkbox" class="page-icons">
+              <span>Web Development</span><input type="checkbox" class="page-icons">
+              <input type="text" class="page-title" value="Roles and Responsibility">
+              <input type="text" class="page-sub" placeholder="page subtitle (eg: )">
+              <textarea class="page-text" placeholder="page text"></textarea>
+              <input type="text" class="page-list" placeholder="page listelement">
+              <input type="text" class="page-list" placeholder="page listelement">
+              <input type="text" class="page-list" placeholder="page listelement">
+            </section>
+            <section class="page subwaypage">
+              <button class="delete">X</button>
+              <p>Subway Page</p>
+              <div id="dropzone-subway"></div>
+              <div class="subway-selection"><p></p></div>
+            </section>
+            <section class="page tablepage">
+              <button class="delete">X</button>
+              <p>Table Page</p>
+              <div class="service-package">
+                <div class="delete-package">X</div>
+                <p>Package Name</p>
+                <p>Package Timeframe</p>
+                <p>Package Subtotal</p>
+                <input type="text" class="table-title" value="Branding Package">
+                <input type="text" class="table-timeframe" value="1 Month">
+                <input type="text" class="table-subtotal" value="$5,000.00">
+                <div class="subservice">
+                  <input type="text" class="subservice-name" value="Logo">
+                  <div class="delete-subservice">X</div>
+                </div>
+                <div class="subservice">
+                  <input type="text" class="subservice-name" value="Branding Guide">
+                  <div class="delete-subservice">X</div>
+                </div>
+                <div class="subservice">
+                  <input type="text" class="subservice-name" value="Letterhead">
+                  <div class="delete-subservice">X</div>
+                </div>
+                <div class="subservice">
+                  <input type="text" class="subservice-name" value="Business Card Templates">
+                  <div class="delete-subservice">X</div>
+                </div>
+                <button class="add-subservice">Add Subservice</button>
+              </div>
+              <button class="add-service-package">Add Package</button>
+              <input type="text" class="offering-discount" value="0">
+            </section>
+            <section class="page iconstitlesubtext">
+              <button class="delete">X</button>
+              <p>Icons Title Sub Text Page</p>
+              <span>Business Development</span><input type="checkbox" class="page-icons" checked>
+              <span>Branding</span><input type="checkbox" class="page-icons" checked>
+              <span>Research &amp; Planning</span><input type="checkbox" class="page-icons" checked>
+              <span>Marketing</span><input type="checkbox" class="page-icons" checked>
+              <span>Web Development</span><input type="checkbox" class="page-icons" checked>
+              <input type="text" class="page-title" value="Additional Services">
+              <input type="text" class="page-sub" value="Our Multidisciplinary Approach">
+              <textarea class="page-text" placeholder="page text"></textarea>
+            </section>
+            <section class="page thedisciplines">
+              <p>Disciplines Page</p>
+            </section>
+            <section class="page worksamples">
+              <p>Work Sample Pages</p>
+            </section>
+            <section class="page theteam">
+              <p>The Team Pages</p>
+            </section>
+            <section class="page backcoverpage">
+              <p>Back Cover Page</p>
+            </section>
+          </div>
+        </div>
+        <button id="generate">Generate</button>
+      </div>
+      <div class="right-container">
+        <div class="page-preview">
+          <div class="page-preview-page"></div>
+        </div>
+        <iframe id="preview" seamless></iframe>
+      </div>
+      <div id="previewCon"></div>
+    </div>
+    <script type="text/javascript" src="javascripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="javascripts/jquery-ui-1.10.4.custom.min.js"></script>
+    <script type="text/javascript" src="javascripts/dropzone.js"></script>
+    <script type="text/javascript" src="jscolor/jscolor.js"></script>
+    <script type="text/javascript" src="javascripts/function.js"></script>
+  </body>
+  </html>
