@@ -20,28 +20,6 @@ app.directive('pageElement', ['$document', function($document) {
   return {
     restrict: 'A',
     link: function(scope, elm, attrs) {
-      /* var section = elm.attr("page-element");
-      var startX = 0, startY = 0, x=0, y=0, index=0;
-      elm.on('mousedown', function(event) {
-        // Prevent default dragging of selected content
-        event.preventDefault();
-        if (isNaN(scope.$eval(attrs.index))) {
-          var xstring = "x = scope.pagePreview.pagesetup."+section+".settings.xpos";
-          var ystring = "y = scope.pagePreview.pagesetup."+section+".settings.ypos"; 
-        } else {
-          index = scope.$eval(attrs.index);
-          var xstring = "x = scope.pagePreview.pagesetup."+section+"["+index+"]"+".settings.xpos";
-          var ystring = "y = scope.pagePreview.pagesetup."+section+"["+index+"]"+".settings.ypos"; 
-        }
-        eval(xstring);
-        eval(ystring);
-        x = (x/100) * scope.previewPageWidth;
-        y = (y/100) * scope.previewPageHeight;
-        startX = event.pageX - x;
-        startY = event.pageY - y;
-        $document.on('mousemove', mousemove);
-        $document.on('mouseup', mouseup);
-      }); */
       var section = elm.attr("page-element");
       
       elm.resizable({
@@ -49,15 +27,41 @@ app.directive('pageElement', ['$document', function($document) {
         handles: "e,s,se"
       });
       elm.on('resizestop',function(event, ui){
-        if (scope.callback) { scope.callback(); }
+        var newheight = Math.floor((ui.size.height / scope.previewPageHeight) * 100);
+        var newwidth = Math.floor((ui.size.width / scope.previewPageWidth) * 100);
+        if (isNaN(scope.$eval(attrs.index))) {
+          var posleft = "scope.pagePreview.pagesetup." + section + ".settings.xpos";
+          var postop = "scope.pagePreview.pagesetup." + section + ".settings.ypos";
+        } else {
+          var index = scope.$eval(attrs.index);
+          var posleft = "scope.pagePreview.pagesetup." + section + "[" + index + "]" + ".settings.xpos";
+          var postop = "scope.pagePreview.pagesetup." + section + "[" + index + "]" + ".settings.ypos";
+        }
+        if (newheight+eval(postop) > 100) {
+          newheight = 100-eval(postop);
+        }
+        if (newwidth+eval(posleft) > 100) {
+          newwidth = 100-eval(posleft);
+        }
+
+        if (isNaN(scope.$eval(attrs.index))) {
+          var yfix = "scope.pagePreview.pagesetup." + section + ".settings.height = " + newheight;
+          var xfix = "scope.pagePreview.pagesetup." + section + ".settings.width = " + newwidth;
+        } else {
+          var yfix = "scope.pagePreview.pagesetup." + section + "[" + index + "]" + ".settings.height = " + newheight;
+          var xfix = "scope.pagePreview.pagesetup." + section + "[" + index + "]" + ".settings.width = " + newwidth;
+        }
+          eval(yfix);
+          eval(xfix);
+          scope.$apply();
       });
 
       elm.draggable({
         containment: elm.parent().parent()
       });
       elm.on('dragstop', function(event, ui){
-        var newtop = (ui.position.top / scope.previewPageHeight) * 100;
-        var newleft = (ui.position.left / scope.previewPageWidth) * 100;
+        var newtop = Math.floor((ui.position.top / scope.previewPageHeight) * 100);
+        var newleft = Math.floor((ui.position.left / scope.previewPageWidth) * 100);
         if (isNaN(scope.$eval(attrs.index))) {
           var yfix = "scope.pagePreview.pagesetup." + section + ".settings.ypos = " + newtop;
           var xfix = "scope.pagePreview.pagesetup." + section + ".settings.xpos = " + newleft;
@@ -69,31 +73,6 @@ app.directive('pageElement', ['$document', function($document) {
         eval(yfix);
         eval(xfix);
       });
-      /*
-      function mousemove(event) {
-        y = event.pageY - startY;
-        x = event.pageX - startX;
-        elm.css({
-          top: y + 'px',
-          left:  x + 'px'
-        });
-        var ypos = (y / scope.previewPageHeight) * 100;
-        var xpos = (x / scope.previewPageWidth) * 100;
-        if (isNaN(scope.$eval(attrs.index))) {
-          var yposstring = "scope.pagePreview.pagesetup."+section+".settings.ypos = ypos";
-          var xposstring = "scope.pagePreview.pagesetup."+section+".settings.xpos = xpos"; 
-        } else {
-          var yposstring = "scope.pagePreview.pagesetup."+section+"["+index+"]"+".settings.ypos = ypos";
-          var xposstring = "scope.pagePreview.pagesetup."+section+"["+index+"]"+".settings.xpos = xpos";
-        }
-        eval(yposstring);
-        eval(xposstring);
-      }
-
-      function mouseup() {
-        $document.off('mousemove', mousemove);
-        $document.off('mouseup', mouseup);
-      } */
     }
   }
 }]);
