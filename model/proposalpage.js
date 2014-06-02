@@ -8,7 +8,7 @@ var ProposalSchema = new Schema({
     image: Boolean,
     color: String,
     source: String
-  }
+  },
   pagesetup: {
     header: {
       exists: Boolean,
@@ -16,7 +16,7 @@ var ProposalSchema = new Schema({
         image: Boolean,
         color: String,
         source: String,
-        height: float
+        height: Number
       }
     },
     footer: {
@@ -25,7 +25,7 @@ var ProposalSchema = new Schema({
         image: Boolean,
         color: String,
         source: String,
-        height: float
+        height: Number
       }
     },
     heading: Array,

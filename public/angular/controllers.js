@@ -39,62 +39,20 @@ appCtrl.controller('registrationCtrl', ['$scope','$http', function($scope,$http)
 
 // BUILDER CONTROLLER
 appCtrl.controller('builderCtrl', ['$scope','$rootScope','$http','$window', function($scope,$rootScope,$http,$window) {
-  $scope.pageTypes = [{
-    typename: "Default",
-    typeowner: "",
-    background: {
-      image: false,
-      color: "#ffffff",
-      source: ""
-    },
-    pagesetup: {
-      header: {
-        exists: true,
-        settings: {
-          image: false,
-          color: "#888888",
-          source: "",
-          height: 8
-        }
-      },
-      footer: {
-        exists: true,
-        settings: {
-          image:false,
-          color: "#888888",
-          source: "",
-          height: 8
-        }
-      },
-      heading: [{
-        exists: true,
-        settings: {
-          xpos: 10,
-          ypos: 10,
-          width: 80,
-          size: 40,
-          font: "Helvetica"
-        }
-      }],
-      textbody: [{
-        exists: true,
-        settings: {
-          xpos: 10,
-          ypos: 15,
-          width: 40,
-          size: 14,
-          font: "Helvetica"
-        }
-      }],
-      imagearea: [{
-        exists: false,
-        settings: {}
-      }],
-      etc: []
-    }
-  }];
+  $scope.pageTypes = [];
+  $scope.loadPageTypes = function() {
+    $http.get('/proposalpage').success(function(res){
+      $scope.pageTypes = res;
+    }).error(function(){
+      console.log("There was an error.");
+    });
+  };
   $scope.addNewPageType = function() {
-    $scope.pageTypes.push({
+    var confirm = $window.confirm("Page not yet saved. Please press CANCEL and save so changes will not be lost.");
+    if (confirm == false) {
+      return;
+    }
+    $scope.pagePreview = {
       typename: "New Page Type",
       typeowner: "",
       background: {
@@ -126,16 +84,12 @@ appCtrl.controller('builderCtrl', ['$scope','$rootScope','$http','$window', func
         imagearea: [],
         etc: []
       }
-    });
+    };
   };
   $scope.generatePreview = function(index) {
-    if ($scope.currentPreview != null) {
-      
-    } else {
-      var confirm = $window.confirm("Page not yet saved. Please press CANCEL and save so changes will not be lost.");
-      if (confirm == false) {
-        return;
-      }
+    var confirm = $window.confirm("Page not yet saved. Please press CANCEL and save so changes will not be lost.");
+    if (confirm == false) {
+      return;
     }
     var pagetypeinfo = $scope.pageTypes[index];
     $scope.pagePreview = $scope.pageTypes[index];
@@ -187,6 +141,7 @@ appCtrl.controller('builderCtrl', ['$scope','$rootScope','$http','$window', func
         xpos: 10,
         ypos: 30,
         width: 80,
+        height: 10,
         size: 40,
         font: "Helvetica"
       }
@@ -199,6 +154,7 @@ appCtrl.controller('builderCtrl', ['$scope','$rootScope','$http','$window', func
         xpos: 10,
         ypos: 30,
         width: 80,
+        height: 10,
         size: 14,
         font: "Helvetica"
       }
@@ -211,6 +167,7 @@ appCtrl.controller('builderCtrl', ['$scope','$rootScope','$http','$window', func
         xpos: 10,
         ypos: 30,
         width: 40,
+        height: 10,
         defaultimage: ""
       }
     });
@@ -241,6 +198,7 @@ appCtrl.controller('builderCtrl', ['$scope','$rootScope','$http','$window', func
         xpos: 20,
         ypos: 20,
         width: 60,
+        height: 10,
         columns: 3,
         background: {
           image: false,
@@ -264,6 +222,20 @@ appCtrl.controller('builderCtrl', ['$scope','$rootScope','$http','$window', func
     $scope.windowResize();
     $scope.$apply();
   });
+  $scope.savePage = function() {
+    var confirm = $window.confirm("Are you sure you want to save? Make sure your name is unique or it will overwrite similarly named pages.");
+    if (confirm == false) {
+      return;
+    }
+    console.log($scope.pagePreview);
+    $http.post('/proposalpage',$scope.pagePreview).success(function(res){
+      $scope.loadPageTypes();
+      $scope.$apply();
+    }).error(function() {
+      alert('Error!');
+    });
+  };
+  $scope.loadPageTypes();
 }]);
 
 // CREATE CONTROLLER

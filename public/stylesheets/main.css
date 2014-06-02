@@ -63,7 +63,7 @@ a {
 .right-container.larger > h2 {
   position:absolute;
   margin: 0;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 .pages-container {
@@ -334,4 +334,12 @@ a {
   background: white;
   border: 1px solid black;
   padding: 25px;
+}
+
+.reposition {
+  position: absolute!important;
+  top: 0;
+  left: 0;
+  height: 0 ;
+  width: 0;
 }

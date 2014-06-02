@@ -27,23 +27,25 @@
       <button ng-click="addImage()">Add Imagearea</button>
       <button ng-click="addBox()">Add Box</button>
       <button ng-click="addTable()">Add Table</button>
+      <input type="text" ng-model="pagePreview.typename" placeholder="Save Name">
+      <button ng-click="savePage()">Save Page</button>
     </div>
     <div class="page-preview">
       <div class="page-preview-page" style="width:{{previewPageWidth}}px; height:{{previewPageHeight}}px; margin-top:{{previewPageMT}}px; margin-left:{{previewPageML}}px;">
-        <div ng-if="pagePreview.pagesetup.header.exists" class="page-element" style="width:{{previewPageWidth}}px; height:{{(pagePreview.pagesetup.header.settings.height/100) * previewPageHeight}}px;">Header</div>
-        <div ng-if="pagePreview.pagesetup.footer.exists" class="page-element" style="width:{{previewPageWidth}}px; height:{{(pagePreview.pagesetup.footer.settings.height/100) * previewPageHeight}}px; top:{{previewPageHeight * ((100 - pagePreview.pagesetup.footer.settings.height)/100)}}px;">Footer</div>
-        <div ng-repeat="heading in pagePreview.pagesetup.heading">
-          <div ng-if="heading.exists" class="page-element" page-element="heading" index="{{$index}}" style="width:{{(heading.settings.width/100) * previewPageWidth}}px; left:{{(heading.settings.xpos/100) * previewPageWidth}}px; top:{{(heading.settings.ypos/100) * previewPageHeight}}px;">Heading</div>
+        <div ng-if="pagePreview.pagesetup.header.exists" class="page-element reposition" style="width:{{previewPageWidth}}px; height:{{(pagePreview.pagesetup.header.settings.height/100) * previewPageHeight}}px;">Header</div>
+        <div ng-if="pagePreview.pagesetup.footer.exists" class="page-element reposition" style="width:{{previewPageWidth}}px; height:{{(pagePreview.pagesetup.footer.settings.height/100) * previewPageHeight}}px; top:{{previewPageHeight * ((100 - pagePreview.pagesetup.footer.settings.height)/100)}}px;">Footer</div>
+        <div ng-repeat="heading in pagePreview.pagesetup.heading" class="reposition">
+          <div ng-if="heading.exists" class="page-element" page-element="heading" index="{{$index}}" style="width:{{(heading.settings.width/100) * previewPageWidth}}px; height:{{(heading.settings.height/100) * previewPageHeight}}px; left:{{(heading.settings.xpos/100) * previewPageWidth}}px; top:{{(heading.settings.ypos/100) * previewPageHeight}}px;">Heading</div>
         </div>
-        <div ng-repeat="textbody in pagePreview.pagesetup.textbody">
-          <div ng-if="textbody.exists" class="page-element" page-element="textbody" index="{{$index}}" style="width:{{(textbody.settings.width/100) * previewPageWidth}}px; left:{{(textbody.settings.xpos/100) * previewPageWidth}}px; top:{{(textbody.settings.ypos/100) * previewPageHeight}}px;">Textbody</div>
+        <div ng-repeat="textbody in pagePreview.pagesetup.textbody" class="reposition">
+          <div ng-if="textbody.exists" class="page-element" page-element="textbody" index="{{$index}}" style="width:{{(textbody.settings.width/100) * previewPageWidth}}px; height:{{(textbody.settings.height/100) * previewPageHeight}}px; left:{{(textbody.settings.xpos/100) * previewPageWidth}}px; top:{{(textbody.settings.ypos/100) * previewPageHeight}}px;">Textbody</div>
         </div>
-        <div ng-repeat="imagearea in pagePreview.pagesetup.imagearea">
-          <div ng-if="imagearea.exists" class="page-element" page-element="imagearea" index="{{$index}}" style="width:{{(imagearea.settings.width/100) * previewPageWidth}}px; left:{{(imagearea.settings.xpos/100) * previewPageWidth}}px; top:{{(imagearea.settings.ypos/100) * previewPageHeight}}px;">Textbody</div>
+        <div ng-repeat="imagearea in pagePreview.pagesetup.imagearea" class="reposition">
+          <div ng-if="imagearea.exists" class="page-element" page-element="imagearea" index="{{$index}}" style="width:{{(imagearea.settings.width/100) * previewPageWidth}}px; height:{{(imagearea.settings.height/100) * previewPageHeight}}px; left:{{(imagearea.settings.xpos/100) * previewPageWidth}}px; top:{{(imagearea.settings.ypos/100) * previewPageHeight}}px;">Image</div>
         </div>
-        <div ng-repeat="other in pagePreview.pagesetup.etc" ng-switch="other.assettype">
+        <div ng-repeat="other in pagePreview.pagesetup.etc" ng-switch="other.assettype" class="reposition">
           <div ng-switch-when="box" class="page-element" page-element="etc" index="{{$index}}" style="width:{{(other.settings.width/100) * previewPageWidth}}px; height:{{(other.settings.height/100) * previewPageHeight}}px; left:{{(other.settings.xpos/100) * previewPageWidth}}px; top:{{(other.settings.ypos/100) * previewPageHeight}}px; opacity:{{other.settings.opacity}};">{{other.assettype}}</div>
-          <div ng-switch-when="table" class="page-element" page-element="etc" index="{{$index}}" style="width:{{(other.settings.width/100) * previewPageWidth}}px; left:{{(other.settings.xpos/100) * previewPageWidth}}px; top:{{(other.settings.ypos/100) * previewPageHeight}}px;">{{other.assettype}}</div>
+          <div ng-switch-when="table" class="page-element" page-element="etc" index="{{$index}}" style="width:{{(other.settings.width/100) * previewPageWidth}}px; height:{{(other.settings.height/100) * previewPageHeight}}px; left:{{(other.settings.xpos/100) * previewPageWidth}}px; top:{{(other.settings.ypos/100) * previewPageHeight}}px;">{{other.assettype}}</div>
         </div>
       </div>
     </div>

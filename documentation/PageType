@@ -31,6 +31,7 @@
         xpos: 10, // X coordinate position for the heading in terms of 0-100 scale relative to width of the page
         ypos: 10, // Y coordinate position for the heading in terms of 0-100 scale relative to height of the page
         width: 80, // Width of the heading in terms of 0-100 scale of the width of page
+        height: 10, // Height of the heading in terms of 0-100 scale of the height of the page
         size: 40, // Fontsize in px of the heading
         font: "Helvetica" // Fontface chosen for the heading
       }
@@ -41,6 +42,7 @@
         xpos: 10, // X coordinate position for the textarea in terms of 0-100 scale relative to width of the page
         ypos: 15, // Y coordinate position for the textarea in terms of 0-100 scale relative to height of the page
         width: 80, // Width of the textarea in terms of 0-100 scale of the width of page
+        height: 10, // Height of the textarea in terms of 0-100 scale of the height of the page
         size: 14, // Fontsize in px of the text
         font: "Helvetica" // Fontface chosen for the text
       }
@@ -51,6 +53,7 @@
         xpos: 80, // X coordinate position for the image in terms of 0-100 scale relative to width of the page
         ypox: 15, // Y coordinate position for the image in terms of 0-100 scale relative to height of the page
         width: 10, // Width of the image in terms of 0-100 scale of the width of the page
+        height: 10, // Height of the image in terms of 0-100 scale of the height of the page
         defaultimage: "String" // URL string for a default image that will occupy the spot if none is selected
       }
     }],
@@ -78,6 +81,7 @@
           xpos: 20, // X coordinate position for the asset in terms of 0-100 scale relative to width of the page
           ypos: 20, // Y coordinate position for the asset in terms of 0-100 scale relative to height of the page
           width: 60, // Width of the asset in terms of 0-100 scale of the width of the page
+          height: 10, // Height of the asset in terms of 0-100 scale of the height of the page
           columns: 3, // Number of columns in the table
           background: { // Background settings for the asset
             image: false, // True if using an image based background for the asset

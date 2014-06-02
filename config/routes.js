@@ -56,5 +56,8 @@ module.exports = function (app, passport) {
     app.get('/proposalList', proposal.list);
     app.post('/proposalLoad', proposal.load);
 
-    app.post('/uploadImage', images.uploadIcon)
+    app.post('/uploadImage', images.uploadIcon);
+
+    app.post('/proposalpage', proposalPage.add);
+    app.get('/proposalpage', proposalPage.list);
 };
