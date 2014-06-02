@@ -1,0 +1,91 @@
+{
+  typename: "String: name that will be unique to this pagetype",
+  typeowner: "String: name of the owner of this pagetype",
+  background: {  // Background Settings
+    image: false, // True if you are using an image for the background
+    color: "String", // Color code entered in hex format including # symbol
+    source: "String" // Only exists if image is set to true, should include image source url
+  },
+  pagesetup: {  // Page Settings
+    header: {  // Header Settings
+      exists: false, // True if a header is set up to exist, the footer goes along the top of the page
+      settings: { // Settings for header
+        image: false, // True if you are intending to use an image for the background of the header
+        color: "String", // Color code for background color including # symbol
+        source: "", // Source of the header's background image if 'image' is set to true
+        height: 10 // Height of the header in terms of 0-100 scale of the height of the page
+      } 
+    },
+    footer: { // Footer Settings
+      exists: false, // True if a footer is set up to exist, the footer goes along the bottom of the page
+      settings: { // Settings for footer
+        image: false, // True if you are intending to use an image for the background of the footer
+        color: "String", // Color code for background color including # symbol
+        source: "", // Source of the footer's background image if 'image' is set to true
+        height: 10 // Height of the footer in terms of 0-100 scale of the height of the page
+        } 
+    },
+    heading: [{ // Array of headings that are setup for the page, this is also used for subheadings
+      exists: true, // True if this heading is active for the page
+      settings: { // Settings for the individual heading
+        xpos: 10, // X coordinate position for the heading in terms of 0-100 scale relative to width of the page
+        ypos: 10, // Y coordinate position for the heading in terms of 0-100 scale relative to height of the page
+        width: 80, // Width of the heading in terms of 0-100 scale of the width of page
+        size: 40, // Fontsize in px of the heading
+        font: "Helvetica" // Fontface chosen for the heading
+      }
+    }],
+    textbody: [{ // Array of textareas that are setup for the page
+      exists: true, // True if the textarea is active for the page
+      settings: { // Settings for the individual textarea
+        xpos: 10, // X coordinate position for the textarea in terms of 0-100 scale relative to width of the page
+        ypos: 15, // Y coordinate position for the textarea in terms of 0-100 scale relative to height of the page
+        width: 80, // Width of the textarea in terms of 0-100 scale of the width of page
+        size: 14, // Fontsize in px of the text
+        font: "Helvetica" // Fontface chosen for the text
+      }
+    }],
+    imagearea: [{ // Array of images that are setup for the page
+      exists: false, // True if the image is active for the page
+      settings: { // Settings for the individual image
+        xpos: 80, // X coordinate position for the image in terms of 0-100 scale relative to width of the page
+        ypox: 15, // Y coordinate position for the image in terms of 0-100 scale relative to height of the page
+        width: 10, // Width of the image in terms of 0-100 scale of the width of the page
+        defaultimage: "String" // URL string for a default image that will occupy the spot if none is selected
+      }
+    }],
+    etc: [ // Array of other assets that could possibly be on the page
+      { // Single asset: Box
+        exists: false, // True if the asset is active for the page
+        assettype: "box", // Name of the asset type
+        settings: { // Settings for the individual asset
+          xpos: 10, // X coordinate position for the asset in terms of 0-100 scale relative to width of the page
+          ypos: 15, // Y coordinate position for the asset in terms of 0-100 scale relative to height of the page
+          width: 10, // Width of the asset in terms of 0-100 scale of the width of the page
+          height: 10, // Height of the asset in terms of 0-100 scale of the height of the page
+          opacity: 1, // Opacity of the asset
+          background: { // Background settings for the asset
+            image: false, // True if using an image based background for the asset
+            color: "String", // Color string using hex including the #
+            source: "String" // Source string only used if 'image' is set to true
+          }
+        }
+      },
+      { // Single asset: Table
+        exists: false, // True if the asset is active for the page
+        assettype: "table", // Name of the asset type
+        settings: { // Settings for the individual asset
+          xpos: 20, // X coordinate position for the asset in terms of 0-100 scale relative to width of the page
+          ypos: 20, // Y coordinate position for the asset in terms of 0-100 scale relative to height of the page
+          width: 60, // Width of the asset in terms of 0-100 scale of the width of the page
+          columns: 3, // Number of columns in the table
+          background: { // Background settings for the asset
+            image: false, // True if using an image based background for the asset
+            color: "String", // Color string using hex including the #
+            source: "String" // Source string only used if 'image' is set to true
+          }
+        }
+      }
+    ]
+  }
+}

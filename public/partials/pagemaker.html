@@ -1,0 +1,52 @@
+<div class="content-container">
+  <div class="left-container smaller">
+    <div class="row">
+      <p>Welcome: {{session.currentUser.name}}</p>
+      <a href="/logout">Logout</a>
+    </div>
+    <div class="row">
+      <button ng-click="addNewPageType()">New Page Type</button>
+    </div>
+    <div class="row pages">
+      <div class="pages-container" ui-sortable ng-model="pageTypes" style="height:{{containerHeight}}px">
+        <section ng-repeat="page in pageTypes track by $index" class="page" ng-click="generatePreview($index)">
+          <div>
+            <p>{{page.typename}}</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div class="right-container larger">
+    <h2>{{pagePreview.typename}}</h2>
+    <div class="page-preview-controls">
+      <button ng-click="toggleHeader()">Toggle Header</button>
+      <button ng-click="toggleFooter()">Toggle Footer</button>
+      <button ng-click="addHeading()">Add Heading</button>
+      <button ng-click="addText()">Add Textbody</button>
+      <button ng-click="addImage()">Add Imagearea</button>
+      <button ng-click="addBox()">Add Box</button>
+      <button ng-click="addTable()">Add Table</button>
+    </div>
+    <div class="page-preview">
+      <div class="page-preview-page" style="width:{{previewPageWidth}}px; height:{{previewPageHeight}}px; margin-top:{{previewPageMT}}px; margin-left:{{previewPageML}}px;">
+        <div ng-if="pagePreview.pagesetup.header.exists" class="page-element" style="width:{{previewPageWidth}}px; height:{{(pagePreview.pagesetup.header.settings.height/100) * previewPageHeight}}px;">Header</div>
+        <div ng-if="pagePreview.pagesetup.footer.exists" class="page-element" style="width:{{previewPageWidth}}px; height:{{(pagePreview.pagesetup.footer.settings.height/100) * previewPageHeight}}px; top:{{previewPageHeight * ((100 - pagePreview.pagesetup.footer.settings.height)/100)}}px;">Footer</div>
+        <div ng-repeat="heading in pagePreview.pagesetup.heading">
+          <div ng-if="heading.exists" class="page-element" page-element="heading" index="{{$index}}" style="width:{{(heading.settings.width/100) * previewPageWidth}}px; left:{{(heading.settings.xpos/100) * previewPageWidth}}px; top:{{(heading.settings.ypos/100) * previewPageHeight}}px;">Heading</div>
+        </div>
+        <div ng-repeat="textbody in pagePreview.pagesetup.textbody">
+          <div ng-if="textbody.exists" class="page-element" page-element="textbody" index="{{$index}}" style="width:{{(textbody.settings.width/100) * previewPageWidth}}px; left:{{(textbody.settings.xpos/100) * previewPageWidth}}px; top:{{(textbody.settings.ypos/100) * previewPageHeight}}px;">Textbody</div>
+        </div>
+        <div ng-repeat="imagearea in pagePreview.pagesetup.imagearea">
+          <div ng-if="imagearea.exists" class="page-element" page-element="imagearea" index="{{$index}}" style="width:{{(imagearea.settings.width/100) * previewPageWidth}}px; left:{{(imagearea.settings.xpos/100) * previewPageWidth}}px; top:{{(imagearea.settings.ypos/100) * previewPageHeight}}px;">Textbody</div>
+        </div>
+        <div ng-repeat="other in pagePreview.pagesetup.etc" ng-switch="other.assettype">
+          <div ng-switch-when="box" class="page-element" page-element="etc" index="{{$index}}" style="width:{{(other.settings.width/100) * previewPageWidth}}px; height:{{(other.settings.height/100) * previewPageHeight}}px; left:{{(other.settings.xpos/100) * previewPageWidth}}px; top:{{(other.settings.ypos/100) * previewPageHeight}}px; opacity:{{other.settings.opacity}};">{{other.assettype}}</div>
+          <div ng-switch-when="table" class="page-element" page-element="etc" index="{{$index}}" style="width:{{(other.settings.width/100) * previewPageWidth}}px; left:{{(other.settings.xpos/100) * previewPageWidth}}px; top:{{(other.settings.ypos/100) * previewPageHeight}}px;">{{other.assettype}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="previewCon"></div>
+</div>

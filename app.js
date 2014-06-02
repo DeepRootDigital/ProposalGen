@@ -1,64 +1,31 @@
 /**
  * Module dependencies.
  */
- require('newrelic');
- var express = require('express');
- var routes = require('./routes');
- var proposal = require('./routes/proposal');
- var images = require('./routes/images');
+ var mongoose = require("mongoose");
  var http = require('http');
- var path = require('path');
  var fs = require('fs');
- var PDFDocument = require('pdfkit');
+ var passport = require('passport');
+ var mongodbURI = 'mongodb://bms:freelancevps123@dbh26.mongolab.com:27267/bms-propgen';
+ var facebookAppId = '221554208054736',
+     facebookAppSecret = '06365c16156c0f1fa566efb2b8a91767';
+ var AWS_ACCESS_KEY = process.env.AWS_ACCESS_KEY;
+ var AWS_SECRET_KEY = process.env.AWS_SECRET_KEY;
+ var S3_BUCKET = process.env.S3_BUCKET;
 
-// Database
+mongoose.connect(mongodbURI);
 
-var mongo = require('mongoskin');
-var db = mongo.db("mongodb://localhost:27017/proposalgen", {native_parser:true});
+require('./model/account.js');
+require('./model/proposal.js');
+require('./model/proposalpage.js');
 
-var app = express();
+require('./config/passport')(passport, facebookAppId, facebookAppSecret);
 
-// all environments
-app.set('views', __dirname + '/views');
-app.engine('html', require('ejs').renderFile);
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded());
-app.use(express.methodOverride());
-app.use(express.bodyParser({keepExtensions:true,uploadDir:__dirname+'/public/icons/tmp'}));
-app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
+var app = require('./config/express')(passport, mongodbURI);
 
-// development only
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
-}
+require('./config/routes')(app, passport);
 
-/* Define all the pages */
-
-// Pre login
-app.get('/', function(req, res) { res.render('frontpage.html'); });
-app.get('/create', function(req, res) { res.render('create.html'); });
-
-/* End Page Definitions */
-
-/* Define RESTful actions */
-
-// GET
-app.get('/proposallist', proposal.list(db));
-
-// POST
-app.post('/genproposal', proposal.genproposal());
-app.post('/addproposal', proposal.addproposal(db));
-app.post('/dropzoneupload', images.dzUpload(db));
-
-
-/* End RESTful actions */
-var port = process.env.PORT || 8080;
 http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + port);
+    console.log('Express server listening on port ' + app.get('port'));
 });
 
-//
-app.listen(port);
+exports = module.exports = app;
