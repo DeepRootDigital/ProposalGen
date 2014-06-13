@@ -4,8 +4,29 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  
 }
-
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 20px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 0px;
+    background: rgb(109,186,178);
+    height:30px;
+}
+::-webkit-scrollbar-thumb:hover {
+   background:rgb(14,100,94);
+}
 a {
   text-decoration:none;
 }
@@ -13,9 +34,7 @@ a {
 .row > button {
   width:45%;
   padding: 6px 12px;
-  margin-bottom: 0;
-  margin-top: 0;
-  margin-right: 5px;
+  margin:2px;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.42857143;
@@ -28,10 +47,7 @@ a {
   -ms-user-select: none;
   user-select: none;
   background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
   color: #333;
-  background-color:#ffffff;
 }
 
 .row {
@@ -107,15 +123,17 @@ a {
 
 .delete {
   float: right;
-  color: red;
-  background: white;
-  border: 1px solid #343533;
 }
 
 #dropzone, #dropzone-subway {
   width: 100%;
-  height: 55px;
-  background: red;
+  height: 100px;
+  border: 2px dashed rgb(211,211,211); 
+  background-image: url(images/dropZone.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
 }
 
 #previewCon {
@@ -343,3 +361,74 @@ a {
   height: 0 ;
   width: 0;
 }
+
+input[type=text],input[type=password],textarea {
+    background-color:white;
+    border-style:solid;
+    border-width:2px;
+    border-color:rgb(209,211,213);
+}
+input[type=text]:focus,textarea:focus{
+    border-color:rgb(0,161,151);
+}	
+button {
+    background-color:rgb(49,167,158);
+    border:none;
+}
+button:hover{
+    background-color:rgb(109,186,178);
+    border-bottom:solid;
+    border-bottom-width:2px;
+    border-bottom-color:rgb(0,60,52);
+}
+button:focus{
+    background-color:rgb(14,100,94);
+    border-up:solid;
+    border-up-width:2px;
+    border-up-color:rgb(0,0,3);
+}
+.select-bar{
+    position: absolute;
+    left: 80%;
+    width: 20%;
+}
+.select-content{  
+    background-color: rgb(211,211,211);
+    top:0px;
+    overflow-y:scroll;
+    float:right;
+    height:300px;
+}
+
+.select-content ul {
+    padding:5px;
+  
+}
+.select-content ul li {
+    background-color: white;
+    margin:5px;
+    list-style-type:none;
+    padding:5px;
+    cursor:pointer;
+  
+}
+.select-tag{
+    width: 25px;
+    height: 100px;
+    background-color: rgb(49,167,158);
+    margin: 0px;
+    text-align: center;
+    cursor: pointer;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 15px;
+    top: 50px;
+    float:right;
+    
+}
+.select-tag img{
+    top:37.5px;
+    width:25px;
+    position:relative;
+}	

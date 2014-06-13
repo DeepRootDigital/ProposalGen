@@ -3,7 +3,7 @@
 /* Controllers */
 
 var appCtrl = angular.module('app');
-
+appCtrl.run();
 // Home Controller
 appCtrl.controller('homeCtrl', ['$scope', '$rootScope', '$http',
   function($scope, $rootScope, $http) {
@@ -244,6 +244,7 @@ appCtrl.controller('createController', ['$scope','$rootScope','$http','$document
   $scope.previewHeight = $window.innerHeight-30;
   $scope.username = $rootScope.user;
   $scope.selectedPage = 0;
+  $scope.selectBarStatus=false;
   $scope.selectPage = function(index) {
     $scope.selectedPage = index;
   };
@@ -362,8 +363,8 @@ appCtrl.controller('createController', ['$scope','$rootScope','$http','$document
     });
   };
 
-  $scope.loadinProposal = function(){
-    $http.post('/proposalLoad',{chosen: $scope.chosenProposal}).success(function(res){
+  $scope.loadinProposal = function(chosenProposal){
+    $http.post('/proposalLoad',{chosen: chosenProposal}).success(function(res){
       $scope.propInfo = res[0].propinfo;
     }).error(function(){
       console.log("There was an error.");

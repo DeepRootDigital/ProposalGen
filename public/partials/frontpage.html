@@ -1,11 +1,12 @@
+<link rel="stylesheet" href="stylesheets/frontpage.css">
 <button ng-show="session.isLoggedIn" ng-click="session.logout()">Logout</button>
 <div ng-controller="registrationCtrl" ng-hide="session.isLoggedIn">
   <form ng-submit="session.register(userInfo)">
-    <input type="text" name="name" ng-model="userInfo.name" placeholder="Name">
-    <input type="text" name="username" ng-model="userInfo.username" placeholder="Username">
-    <input type="text" name="email" ng-model="userInfo.email" placeholder="Email">
-    <input type="password" name="password" ng-model="userInfo.password" placeholder="Password">
-    <input type="password" name="confirmPassword" ng-model="userInfo.confirmPassword" placeholder="Password Repeat">
+    <input type="text" name="name" ng-model="userInfo.name" placeholder="Name" class="inputField">
+    <input type="text" name="username" ng-model="userInfo.username" placeholder="Username" class="inputField">
+    <input type="text" name="email" ng-model="userInfo.email" placeholder="Email" class="inputField">
+    <input type="password" name="password" ng-model="userInfo.password" placeholder="Password" class="inputField">
+    <input type="password" name="confirmPassword" ng-model="userInfo.confirmPassword" placeholder="Password Repeat" class="inputField">
     <button type="submit">Sign Up</button>
   </form>
   <div>
@@ -14,8 +15,8 @@
 </div>
 <div ng-controller="loginCtrl" ng-hide="session.isLoggedIn">
   <form ng-submit="session.login(userInfo)">
-    <input type="text" name="email" ng-model="userInfo.email" placeholder="Email">
-    <input type="password" name="password" ng-model="userInfo.password" placeholder="Password">
+    <input type="text" name="email" ng-model="userInfo.email" placeholder="Email" class="inputField">
+    <input type="password" name="password" ng-model="userInfo.password" placeholder="Password" class="inputField">
     <button type="submit">Login</button>
   </form>
 </div>

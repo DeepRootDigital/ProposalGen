@@ -1,7 +1,7 @@
 var mongoose = require('mongoose'),
 ProposalPage = mongoose.model('Proposalpage');
 /*
- * GET memes listing.
+ * GET memes lchosenProposalisting.
  */
 
  exports.list = function(req, res, next) {

@@ -1,7 +1,7 @@
 <div class="content-container">
   <div class="left-container">
     <div class="row">
-      <p>Welcome: {{session.currentUser.name}}</p>
+      <p>Welcome: {{session.currentUser.name}} | {{chosenProposal}}</p>
       <a href="/logout">Logout</a>
       <button ng-click="changeShowFind()">Find/Replace</button>
       <div ng-show="showFind == true" class="show-find">
@@ -139,12 +139,24 @@
     <div class="page-preview">
       <div class="page-preview-page"></div>
     </div>
-    <iframe id="preview" seamless style="height:{{previewHeight}}px"></iframe>
-    <select ng-model="chosenProposal">
-      <option ng-repeat="proposal in proposalList">{{proposal.proposalname}}</option>
-    </select>
-    {{chosenProposal}}
-    <button ng-click="loadinProposal()">Load</button>
-  </div>
-  <div id="previewCon"></div>
+    <iframe id="preview" seamless style="height:{{previewHeight}}px"></iframe>  
+    
+</div> 
+    <div class="select-bar">
+        <div class="select-content" ng-show="selectBarStatus">      
+            <ul>
+                <li name={{proposal.proposalname}}
+                    ng-repeat="proposal in proposalList"
+                    ng-click="loadinProposal(proposal.proposalname)">
+                    {{proposal.proposalname}}              
+                </li>
+            </ul>
+        </div>
+         <div class="select-tag" 
+              ng-click="selectBarStatus=!selectBarStatus" 
+              >
+                <img ng-show="selectBarStatus" src="stylesheets/images/selectArrowRight.png"/>
+                <img ng-hide="selectBarStatus" src="stylesheets/images/selectArrowLeft.png"/>
+        </div>
+    </div>
 </div>
