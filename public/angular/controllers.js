@@ -38,8 +38,48 @@ appCtrl.controller('registrationCtrl', ['$scope','$http', function($scope,$http)
 }]);
 
 // BUILDER CONTROLLER
-appCtrl.controller('builderCtrl', ['$scope','$rootScope','$http','$window', function($scope,$rootScope,$http,$window) {
+appCtrl.controller('builderCtrl', ['$scope','$rootScope','$http','$window','$location', function($scope,$rootScope,$http,$window,$location) {
+
+  // Setting up Variables
+  // Array of pages
   $scope.pageTypes = [];
+  // Set the user
+  $scope.username = $rootScope.email;
+  // Set the default preview on load
+  $scope.pagePreview = {
+    typename: "New Page Type",
+    typeowner: $scope.username,
+    background: {
+      image: false,
+      color: "#ffffff",
+      source: ""
+    },
+    pagesetup: {
+      header: {
+        exists: false,
+        settings: {
+          image: false,
+          color: "String",
+          source: "",
+          height: 10
+        }
+      },
+      footer: {
+        exists: false,
+        settings: {
+          image: false,
+          color: "String",
+          source: "",
+          height: 10
+        }
+      },
+      heading: [],
+      textbody: [],
+      imagearea: [],
+      etc: []
+    }
+  };
+
   $scope.loadPageTypes = function() {
     $http.get('/proposalpage').success(function(res){
       $scope.pageTypes = res;
@@ -47,6 +87,7 @@ appCtrl.controller('builderCtrl', ['$scope','$rootScope','$http','$window', func
       console.log("There was an error.");
     });
   };
+
   $scope.addNewPageType = function() {
     var confirm = $window.confirm("Page not yet saved. Please press CANCEL and save so changes will not be lost.");
     if (confirm == false) {
@@ -54,7 +95,7 @@ appCtrl.controller('builderCtrl', ['$scope','$rootScope','$http','$window', func
     }
     $scope.pagePreview = {
       typename: "New Page Type",
-      typeowner: "",
+      typeowner: $scope.username,
       background: {
         image: false,
         color: "#ffffff",
@@ -86,6 +127,7 @@ appCtrl.controller('builderCtrl', ['$scope','$rootScope','$http','$window', func
       }
     };
   };
+
   $scope.generatePreview = function(index) {
     var confirm = $window.confirm("Page not yet saved. Please press CANCEL and save so changes will not be lost.");
     if (confirm == false) {
@@ -95,39 +137,8 @@ appCtrl.controller('builderCtrl', ['$scope','$rootScope','$http','$window', func
     $scope.pagePreview = $scope.pageTypes[index];
     $scope.currentPreview = index;
   };
-  $scope.pagePreview = {
-    typename: "New Page Type",
-    typeowner: "",
-    background: {
-      image: false,
-      color: "#ffffff",
-      source: ""
-    },
-    pagesetup: {
-      header: {
-        exists: false,
-        settings: {
-          image: false,
-          color: "String",
-          source: "",
-          height: 10
-        }
-      },
-      footer: {
-        exists: false,
-        settings: {
-          image: false,
-          color: "String",
-          source: "",
-          height: 10
-        }
-      },
-      heading: [],
-      textbody: [],
-      imagearea: [],
-      etc: []
-    }
-  };
+
+  
   $scope.toggleHeader = function() {
     $scope.pagePreview.pagesetup.header.exists = !$scope.pagePreview.pagesetup.header.exists;
   };
@@ -137,6 +148,7 @@ appCtrl.controller('builderCtrl', ['$scope','$rootScope','$http','$window', func
   $scope.addHeading = function() {
     $scope.pagePreview.pagesetup.heading.push({
       exists: true,
+      content: "",
       settings: {
         xpos: 10,
         ypos: 30,
@@ -150,6 +162,7 @@ appCtrl.controller('builderCtrl', ['$scope','$rootScope','$http','$window', func
   $scope.addText = function() {
     $scope.pagePreview.pagesetup.textbody.push({
       exists: true,
+      content: "",
       settings: {
         xpos: 10,
         ypos: 30,
@@ -194,6 +207,7 @@ appCtrl.controller('builderCtrl', ['$scope','$rootScope','$http','$window', func
     $scope.pagePreview.pagesetup.etc.push({
       exists: true,
       assettype: "table",
+      content: "",
       settings: {
         xpos: 20,
         ypos: 20,
@@ -217,17 +231,12 @@ appCtrl.controller('builderCtrl', ['$scope','$rootScope','$http','$window', func
     $scope.previewPageML = 0.075 * width;
     $scope.containerHeight = $window.innerHeight - 120;
   };
-  $scope.windowResize();
-  angular.element($window).bind('resize',function(){
-    $scope.windowResize();
-    $scope.$apply();
-  });
+  
   $scope.savePage = function() {
     var confirm = $window.confirm("Are you sure you want to save? Make sure your name is unique or it will overwrite similarly named pages.");
     if (confirm == false) {
       return;
     }
-    console.log($scope.pagePreview);
     $http.post('/proposalpage',$scope.pagePreview).success(function(res){
       $scope.loadPageTypes();
       $scope.$apply();
@@ -235,82 +244,63 @@ appCtrl.controller('builderCtrl', ['$scope','$rootScope','$http','$window', func
       alert('Error!');
     });
   };
-  $scope.loadPageTypes();
+
+  if (!$rootScope.email) {
+    // $location.url('/')
+  } else {
+    $scope.loadPageTypes();
+    $scope.windowResize();
+    angular.element($window).bind('resize',function(){
+      $scope.windowResize();
+      $scope.$apply();
+    });
+  }
 }]);
 
 // CREATE CONTROLLER
-appCtrl.controller('createController', ['$scope','$rootScope','$http','$document','$window',function($scope,$rootScope,$http,$document,$window) {
+appCtrl.controller('createController', ['$scope','$rootScope','$http','$document','$window','$location',function($scope,$rootScope,$http,$document,$window,$location) {
+
+  $scope.sortableConfig = {containment: "parent"};
+  $scope.proposalList = [];
+  $scope.pageTypes = [];
+  $scope.showFind = false;
+  $scope.wordFind = "";
+  $scope.wordReplace = "";
+  $scope.changeShowFind = function(){
+    $scope.showFind = !$scope.showFind;
+  };
+  $scope.propInfo = {
+    clientname: "clientname",
+    pages: []
+  };
   $scope.containerHeight = $window.innerHeight-230;
   $scope.previewHeight = $window.innerHeight-30;
   $scope.username = $rootScope.user;
+  $scope.useremail = $rootScope.email;
   $scope.selectedPage = 0;
+  $scope.selectedPageType = 0;
+
+  $scope.loadPageTypes = function() {
+    $http.get('/proposalpage').success(function(res){
+      $scope.pageTypes = res;
+    }).error(function(){
+      console.log("There was an error.");
+    });
+  };
   $scope.selectPage = function(index) {
     $scope.selectedPage = index;
   };
-  $scope.addPage = function(index) {
-    $scope.propInfo.pages.splice(index+1,0,"hello");
+  $scope.addPage = function() {
+    var selectedPage = angular.copy($scope.pageTypes[$scope.selectedPageType]);
+    $scope.propInfo.pages.splice($scope.selectedPage+1,0,selectedPage);
   };
   $scope.deletePage = function(index) {
     $scope.propInfo.pages.splice(parseInt(index),1);
   };
-  $scope.deletePackage = function(parentindex,index) {
-    $scope.propInfo.pages[parentindex].pagetext.splice(index,1);
+  $scope.deleteRow = function(parentindex,index) { 
   };
-  $scope.addPackage = function(index) {
-    $scope.propInfo.pages[index].pagetext.push({
-      pname: "Branding Package",
-      pservice: [{text:"Logo"},{text:"Branding Guide"},{text:"Letterhead"},{text:"Business Card Templates"}],
-      psub: "$5,000.00",
-      ptime: "1 Month"
-    });
-  };
-  $scope.addSubservice = function(parentindex,index) {
-    $scope.propInfo.pages[parentindex].pagetext[index].pservice.push({text:""});
-  };
-  $scope.deleteSubservice = function(parentparentindex,parentindex,index) {
-    $scope.propInfo.pages[parentparentindex].pagetext[parentindex].pservice.splice(index,1);
-  };
-  $scope.addTitleText = function() {
-    $scope.propInfo.pages.splice($scope.selectedPage+1,0,{
-      pageicons: false,
-      pageimage: false,
-      pagelist: false,
-      pagesub: false,
-      pagetext: "",
-      pagetitle: "Page Title",
-      pagetype: "titletext"
-    });
-    $scope.selectedPage += 1;
-  };
-  $scope.addTitleSubText = function() {
-    $scope.propInfo.pages.splice($scope.selectedPage+1,0,{
-      pageicons: false,pageimage: false,pagelist: false,pagesub: "Page Subtitle",pagetext: "",pagetitle: "Page Title",pagetype: "titlesubtext"
-    });
-  };
-  $scope.addTitleTextSubList = function() {
-    $scope.propInfo.pages.splice($scope.selectedPage+1,0,{
-      pageicons: false,pageimage: false,pagelist: [{text:""},{text:""},{text:""}],pagesub: "Page Subtitle",pagetext: "",pagetitle: "Page Title",pagetype: "titletextsublist"
-    });
-  };
-  $scope.addIconsTitleSubText = function() {
-    $scope.propInfo.pages.splice($scope.selectedPage+1,0,{
-      pageicons: ["servicepage-bd.png","servicepage-branding.png","servicepage-planning.png","servicepage-marketing.png","servicepage-webdev.png"],pageimage: false,pagelist: false,pagesub: "Page Subtitle",pagetext: "",pagetitle: "Page Title",pagetype: "iconstitlesubtext"
-    });
-  };
-  $scope.addIconsTitleSubText = function() {
-    $scope.propInfo.pages.splice($scope.selectedPage+1,0,{
-      pageicons: ["servicepage-bd.png","servicepage-branding.png","servicepage-planning.png","servicepage-marketing.png","servicepage-webdev.png"],pageimage: false,pagelist: false,pagesub: "Page Subtitle",pagetext: "",pagetitle: "Page Title",pagetype: "iconstitlesubtext"
-    });
-  };
-  $scope.addIconsTitleSubText = function() {
-    $scope.propInfo.pages.splice($scope.selectedPage+1,0,{
-      pageicons: ["servicepage-bd.png","servicepage-webdev.png"],pageimage: false,pagelist: [{text:""},{text:""},{text:""}],pagesub: "Page Subtitle",pagetext: "",pagetitle: "Page Title",pagetype: "iconstitlesubtextlist"
-    });
-  };
-  $scope.addTablepage = function() {
-    $scope.propInfo.pages.splice($scope.selectedPage+1,0,{
-      pageicons: false,pageimage: false,pagelist: false,pagesub: "0",pagetext: [{pname: "Branding Package",pservice: [{text:"Logo"},{text:"Branding Guide"},{text:"Letterhead"},{text:"Business Card Templates"}],psub: "$5,000.00",ptime: "1 Month"}],pagetitle: false,pagetype: "tablepage"
-    });
+  $scope.addRow = function(index) {
+    console.log("meow");
   };
 
   $scope.genProposal = function() {
@@ -336,7 +326,7 @@ appCtrl.controller('createController', ['$scope','$rootScope','$http','$document
       }
     }
     var propInfo = {
-      owner: $rootScope.user,
+      owner: $scope.useremail,
       proposalname: $scope.propSaveName,
       propinfo: $scope.propInfo
     };
@@ -363,6 +353,10 @@ appCtrl.controller('createController', ['$scope','$rootScope','$http','$document
   };
 
   $scope.loadinProposal = function(){
+    var confirm = $window.confirm("Loading this proposal will overwrite any changes you might have made. Please press Cancel and save your changes or press OK to continue.");
+    if (confirm == false) {
+      return;
+    }
     $http.post('/proposalLoad',{chosen: $scope.chosenProposal}).success(function(res){
       $scope.propInfo = res[0].propinfo;
     }).error(function(){
@@ -405,242 +399,22 @@ appCtrl.controller('createController', ['$scope','$rootScope','$http','$document
     }
   };
 
-  $scope.sortableConfig = {containment: "parent"};
-
-  $scope.proposalList = [];
-  $scope.loadProposal();
-  $scope.showFind = false;
-  $scope.wordFind = "";
-  $scope.wordReplace = "";
-  $scope.changeShowFind = function(){
-    $scope.showFind = !$scope.showFind;
-  };
-
-  $scope.propInfo = {
-    clientname: "clientname",
-    pages: [
-    {
-      pageicons: false,
-      pageimage: false,
-      pagelist: false,
-      pagesub: false,
-      pagetext: false,
-      pagetitle: false,
-      pagetype: "coverpage"
-    },{
-      pageicons: false,
-      pageimage: "",
-      pagelist: false,
-      pagesub: false,
-      pagetext: "200",
-      pagetitle: "#ffffff",
-      pagetype: "sectiontwocover"
-    },{
-      pageicons: false,
-      pageimage: false,
-      pagelist: false,
-      pagesub: false,
-      pagetext: "",
-      pagetitle: "A. Company Overview",
-      pagetype: "titletext"
-    },{
-      pageicons: false,
-      pageimage: false,
-      pagelist: [{text:"1"},{text:"2"},{text:"3"}],
-      pagesub: "BMS Proposes to supply the following:",
-      pagetext: "",
-      pagetitle: "B. Our offer to Company Name Here",
-      pagetype: "titletextsublist"
-    },{
-      pageicons: false,
-      pageimage: false,
-      pagelist: [{text:"1"},{text:"2"},{text:"3"}],
-      pagesub: "BMS anticipates the following:",
-      pagetext: "",
-      pagetitle: "B. Desired Outcome",
-      pagetype: "titletextsublist"
-    },{
-      pageicons: false,
-      pageimage: false,
-      pagelist: false,
-      pagesub: false,
-      pagetext: false,
-      pagetitle: false,
-      pagetype: "sectionthreecover"
-    },{
-      pageicons: false,
-      pageimage: false,
-      pagelist: false,
-      pagesub: "Our Multidisciplinary Approach",
-      pagetext: "",
-      pagetitle: "Unique Value Proposition",
-      pagetype: "titlesubtext"
-    },{
-      pageicons: ["servicepage-bd.png","servicepage-branding.png","servicepage-planning.png","servicepage-marketing.png","servicepage-webdev.png"],
-      pageimage: false,
-      pagelist: false,
-      pagesub: "Our Multidisciplinary Approach",
-      pagetext: "",
-      pagetitle: "Scope of Work",
-      pagetype: "iconstitlesubtext"
-    },{
-      pageicons: ["servicepage-planning.png","servicepage-marketing.png"],
-      pageimage: false,
-      pagelist: [{text:"1"},{text:"2"},{text:"3"}],
-      pagesub: "I. Discovery & Strategic Direction",
-      pagetext: "",
-      pagetitle: "Scope of Work",
-      pagetype: "iconstitlesubtextlist"
-    },{
-      pageicons: ["servicepage-planning.png","servicepage-marketing.png","servicepage-webdev.png"],
-      pageimage: false,
-      pagelist: [{text:"1"},{text:"2"},{text:"3"}],
-      pagesub: "II. Website Strategy",
-      pagetext: "",
-      pagetitle: "Scope of Work",
-      pagetype: "iconstitlesubtextlist"
-    },{
-      pageicons: ["servicepage-branding.png","servicepage-webdev.png"],
-      pageimage: false,
-      pagelist: [{text:"1"},{text:"2"},{text:"3"}],
-      pagesub: "III. Design & Creative",
-      pagetext: "",
-      pagetitle: "Scope of Work",
-      pagetype: "iconstitlesubtextlist"
-    },{
-      pageicons: ["servicepage-bd.png","servicepage-marketing.png","servicepage-webdev.png"],
-      pageimage: false,
-      pagelist: false,
-      pagesub: "IV. Website Copywriting & Search Engine Optimization",
-      pagetext: "",
-      pagetitle: "Scope of Work",
-      pagetype: "iconstitlesubtext"
-    },{
-      pageicons: ["servicepage-webdev.png"],
-      pageimage: false,
-      pagelist: [{text:"1"},{text:"2"},{text:"3"}],
-      pagesub: "V. Website Development",
-      pagetext: "",
-      pagetitle: "Scope of Work",
-      pagetype: "iconstitlesubtextlist"
-    },{
-      pageicons: ["servicepage-marketing.png","servicepage-webdev.png"],
-      pageimage: false,
-      pagelist: [{text:"1"},{text:"2"},{text:"3"}],
-      pagesub: "VI. Analytics",
-      pagetext: "",
-      pagetitle: "Scope of Work",
-      pagetype: "iconstitlesubtextlist"
-    },{
-      pageicons: ["servicepage-planning.png","servicepage-webdev.png"],
-      pageimage: false,
-      pagelist: [{text:"1"},{text:"2"},{text:"3"}],
-      pagesub: "VII. Testing, Quality Control, and delivery",
-      pagetext: "",
-      pagetitle: "Scope of Work",
-      pagetype: "iconstitlesubtextlist"
-    },{
-      pageicons: ["servicepage-planning.png"],
-      pageimage: false,
-      pagelist: [{text:"1"},{text:"2"},{text:"3"}],
-      pagesub: "VIII. Project Management",
-      pagetext: "",
-      pagetitle: "Scope of Work",
-      pagetype: "iconstitlesubtextlist"
-    },{
-      pageicons: ["servicepage-bd.png","servicepage-webdev.png"],
-      pageimage: false,
-      pagelist: [{text:"1"},{text:"2"},{text:"3"}],
-      pagesub: "IX. Training",
-      pagetext: "",
-      pagetitle: "Scope of Work",
-      pagetype: "iconstitlesubtextlist"
-    },{
-      pageicons: ["servicepage-bd.png"],
-      pageimage: false,
-      pagelist: [{text:"1"},{text:"2"},{text:"3"}],
-      pagesub: "",
-      pagetext: "",
-      pagetitle: "Roles and Responsibility",
-      pagetype: "iconstitlesubtextlist"
-    },{
-      pageicons: false,
-      pageimage: "",
-      pagelist: false,
-      pagesub: false,
-      pagetext: false,
-      pagetitle: false,
-      pagetype: "subwaypage"
-    },{
-      pageicons: false,
-      pageimage: false,
-      pagelist: false,
-      pagesub: "0",
-      pagetext: [{
-        pname: "Branding Package",
-        pservice: [{text:"Logo"},{text:"Branding Guide"},{text:"Letterhead"},{text:"Business Card Templates"}],
-        psub: "$5,000.00",
-        ptime: "1 Month"
-      }],
-      pagetitle: false,
-      pagetype: "tablepage"
-    },{
-      pageicons: ["servicepage-bd.png","servicepage-branding.png","servicepage-planning.png","servicepage-marketing.png","servicepage-webdev.png"],
-      pageimage: false,
-      pagelist: false,
-      pagesub: "Our Multidisciplinary Approach",
-      pagetext: "",
-      pagetitle: "Additional Services",
-      pagetype: "iconstitlesubtext"
-    },{
-      pageicons: false,
-      pageimage: false,
-      pagelist: false,
-      pagesub: false,
-      pagetext: false,
-      pagetitle: false,
-      pagetype: "thedisciplines"
-    },{
-      pageicons: false,
-      pageimage: false,
-      pagelist: false,
-      pagesub: false,
-      pagetext: false,
-      pagetitle: false,
-      pagetype: "worksamples"
-    },{
-      pageicons: false,
-      pageimage: false,
-      pagelist: false,
-      pagesub: false,
-      pagetext: false,
-      pagetitle: false,
-      pagetype: "theteam"
-    },{
-      pageicons: false,
-      pageimage: false,
-      pagelist: false,
-      pagesub: false,
-      pagetext: false,
-      pagetitle: false,
-      pagetype: "backcoverpage"
-    }
-    ]
-  };
-
-  $scope.genProposal();
+  if (!$rootScope.email) {
+    // $location.url('/');
+  } else {
+    $scope.loadPageTypes();
+  }
 }]);
 
 // Menu Controller
-appCtrl.controller('menuController', function($scope) {
-  $scope.menu = [
+appCtrl.controller('hubController', function($scope) {
+  $scope.pages = [
   {
-    menuname: "Home",
-    menulocation: "/"
-  },
-  {
-    menuname: "Login",
-    menulocation: "/#/login"
+    name: "Create Proposal",
+    url: "/#/create"
+  },{
+    name: "Edit Page Templates",
+    url: "/#/pagebuilder"
   }
   ];
 });

@@ -1,0 +1,6 @@
+<div class="content-container">
+  <p>Welcome {{session.currentUser.name}}!</p>
+  <ul>
+    <li ng-repeat="page in pages"><a ng-href="{{page.url}}">{{page.name}}</a></li>
+  </ul>
+</div>

@@ -1,11 +1,11 @@
 var mongoose = require('mongoose'),
 ProposalPage = mongoose.model('Proposalpage');
 /*
- * GET memes listing.
+ * GET pages listing.
  */
 
  exports.list = function(req, res, next) {
-  ProposalPage.find({},{ _id: false },function(err,proposals){
+  ProposalPage.find({ typeowner: req.user.email },{ _id: false },function(err,proposals){
     if (err) return next(err);
     if (!proposals) return next("empty");
     res.status(200).send(proposals);
@@ -17,7 +17,7 @@ ProposalPage = mongoose.model('Proposalpage');
  */
 
 exports.add = function(req, res, next) {
-  ProposalPage.findOneAndUpdate({"typename":req.body.typename},req.body,{upsert:true},function(err,proposal){
+  ProposalPage.findOneAndUpdate({"typename":req.body.typename, typeowner: req.user.email},req.body,{upsert:true},function(err,proposal){
     if (err) {
       res.status(400).send('There was an error.');
       return;
