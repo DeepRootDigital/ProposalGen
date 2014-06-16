@@ -15,6 +15,10 @@ config(['$routeProvider', function($routeProvider) {
   	templateUrl: 'partials/create.html', 
   	controller: 'createController'
   });
+  $routeProvider.when('/hub', {
+    templateUrl: 'partials/hub.html',
+    controller: 'hubController'
+  });
   $routeProvider.when('/pagebuilder',{
     templateUrl: 'partials/pagemaker.html',
     controller: 'builderCtrl'

@@ -20,6 +20,7 @@ angular.module('app').factory('sessionService', ['$rootScope', '$window', '$http
           scope.currentUser = userInfo;
           scope.isLoggedIn = true;
           $rootScope.user = userInfo.name;
+          $rootScope.email = userInfo.email;
           $rootScope.$emit('session-changed');
           if (response.redirect) {
             if (window.location.href === response.redirect) {
@@ -29,7 +30,7 @@ angular.module('app').factory('sessionService', ['$rootScope', '$window', '$http
               window.location = response.redirect;
             }
           } else {
-            $location.url('/create');
+            $location.url('/hub');
           }
         })
         .error(function(response) {
@@ -51,8 +52,9 @@ angular.module('app').factory('sessionService', ['$rootScope', '$window', '$http
           scope.currentUser = userInfo;
           scope.isLoggedIn = true;
           $rootScope.user = userInfo.name;
+          $rootScope.email = userInfo.email;
           $rootScope.$emit('session-changed');
-          $location.url('/create');
+          $location.url('/hub');
         })
         .error(function(error) {
           // Error: authentication failed
@@ -84,7 +86,10 @@ angular.module('app').factory('sessionService', ['$rootScope', '$window', '$http
         this.isLoggedIn = true;
         $rootScope.$emit('session-changed');
         $rootScope.user = userData.user;
-        $location.url('/create');
+        $rootScope.email = userData.email;
+        if ($location.url() == "/") {
+          $location.url('/hub');  
+        }
       },
       authFailed: function() {
         this.resetSession();

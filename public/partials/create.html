@@ -10,121 +10,37 @@
         <button disabled>Replace One</button>
         <button ng-click="replaceAll()">Replace All</button>
       </div>
-      <input type="text" name="clientname" id="clientname" ng-model="propInfo.clientname">
     </div>
     <div class="row">
-      <button ng-click="addTitleText()">Add TitleText</button>
-      <button ng-click="addTitleTextSubList()">Add TitleTextSubList</button>
-      <button ng-click="addTitleSubText()">Add TitleSubText</button>
-      <button ng-click="addIconsTitleSubText()">Add IconsTitleSubText</button>
-      <button ng-click="addIconsTitleSubTextList()">Add IconsTitleSubTextList</button>
-      <button ng-click="addTablepage()">Add Table Page</button>
+      <select ng-model="selectedPageType">
+        <option ng-repeat="page in pageTypes" value="{{$index}}">{{page.typename}}</option>
+      </select>
+      <button ng-click="addPage()">Add Page</button>
+      <input type="text" name="clientname" id="clientname" ng-model="propInfo.clientname">
     </div>
     <div class="row pages">
       <div class="pages-container" id="sortable" ui-sortable ng-model="propInfo.pages"  style="height:{{containerHeight}}px">
-        <section ng-repeat="page in propInfo.pages track by $index" class="page {{ page.pagetype }}" ng-switch="page.pagetype" ng-click="selectPage($index)">
-          <div ng-switch-when="coverpage">
-            <p>Cover Page</p>
+        <section ng-repeat="page in propInfo.pages track by $index" class="page" ng-click="selectPage($index)">
+          <button class="delete" ng-click="deletePage($index)">X</button>
+          <p>{{page.typename}}</p>
+          {{page.$$hashKey}}
+          <div ng-repeat="head in page.pagesetup.heading track by $index">
+            <input type="text" placeholder="Heading Text" ng-model="head.content">
           </div>
-          <div ng-switch-when="sectionthreecover">
-            <p>Section Three Cover Page</p>
-          </div>
-          <div ng-switch-when="backcoverpage">
-            <p>Back Cover Page</p>
-          </div>
-          <div ng-switch-when="thedisciplines">
-            <p>Disciplines Pages</p>
-          </div>
-          <div ng-switch-when="theteam">
-            <p>The Team Pages</p>
-          </div>
-          <div ng-switch-when="worksamples">
-            <p>Work Samples Pages</p>
-          </div>
-          <div ng-switch-when="titletext">
-            <button class="delete" ng-click="deletePage($index)">X</button>
-            <p>Title Text Page</p>
-            <input type="text" class="page-title" ng-model="page.pagetitle">
-            <textarea class="page-text" placeholder="page text" ng-model="page.pagetext"></textarea>
-          </div>
-          <div ng-switch-when="titlesubtext">
-            <button class="delete" ng-click="deletePage($index)">X</button>
-            <p>Title Sub Text Page</p>
-            <input type="text" class="page-title" ng-model="page.pagetitle">
-            <input type="text" class="page-sub" ng-model="page.pagesub">
-            <textarea class="page-text" placeholder="page text" ng-model="page.pagetext"></textarea>
-          </div>
-          <div ng-switch-when="titletextsublist">
-            <button class="delete" ng-click="deletePage($index)">X</button>
-            <p>Title Text Sub List Page</p>
-            <input type="text" class="page-title" ng-model="page.pagetitle">
-            <textarea class="page-text" placeholder="page text" ng-model="page.pagetext"></textarea>
-            <input type="text" class="page-sub" ng-model="page.pagesub">
-            <div ng-repeat="list in page.pagelist track by $index">
-              <input type="text" class="page-list" placeholder="page listelement" ng-model="list.text">
-            </div>
-          </div>
-          <div ng-switch-when="subwaypage">
-            <button class="delete" ng-click="deletePage($index)">X</button>
-            <p>Subway Page</p>
-            <div id="dropzone-subway"></div>
-            <div class="subway-selection"><p></p></div>
-          </div>
-          <div ng-switch-when="sectiontwocover">
-            <p>Section Two Cover Page</p>
-            <p>Background Color</p>
-            {{page.pagetitle}}
-            <ui-colorpicker ng-model="page.pagetitle"></ui-colorpicker>
-            <p>Client Icon Image</p>
-            <div id="dropzone" dropzone="dropzoneConfig">Click Here or Drag an Image</div>
-            <div class="section-two-selection"><p>{{page.pageimage}}</p></div>
-            <div class="section-two-image-width"><p>200</p></div>
-          </div>
-          <div ng-switch-when="tablepage">
-            <button class="delete" ng-click="deletePage($index)">X</button>
-            <p>Table Page</p>
-            <div class="service-package" ng-repeat="package in page.pagetext track by $index">
-              <div class="delete-package" ng-click="deletePackage($parent.$index,$index)">X</div>
-              <p>Package Name</p>
-              <p>Package Timeframe</p>
-              <p>Package Subtotal</p>
-              <input type="text" class="table-title" ng-model="package.pname">
-              <input type="text" class="table-timeframe" ng-model="package.ptime">
-              <input type="text" class="table-subtotal" ng-model="package.psub">
-              <div class="subservice" ng-repeat="subservice in package.pservice track by $index">
-                <input type="text" class="subservice-name" ng-model="subservice.text">
-                <div class="delete-subservice" ng-click="deleteSubservice($parent.$parent.$index,$parent.$index,$index)">X</div>
+          <textarea ng-repeat="textbody in page.pagesetup.textbody" placeholder="Textbody Text" ng-model="textbody.content"></textarea>
+          <input ng-repeat="imagearea in page.pagesetup.imagearea" type="text" placeholder="Imagearea Upload" ng-model="imagearea.content">
+          <div ng-repeat="etc in page.pagesetup.etc">
+            <div ng-show="etc.assettype == 'table'">
+              <div ng-if="etc.row" class="service-package" ng-repeat="row in etc.row track by $index">
+                <div class="delete-package" ng-click="deleteRow($parent.$index,$index)">X</div>
+                <p>Column Title</p>
+                <p>Column Title</p>
+                <p>Column Title</p>
+                <input type="text" class="table-title">
+                <input type="text" class="table-timeframe">
+                <input type="text" class="table-subtotal">
               </div>
-              <button class="add-subservice" ng-click="addSubservice($parent.$index,$index)">Add Subservice</button>
-            </div>
-            <button class="add-service-package" ng-click="addPackage($index)">Add Package</button>
-            <input type="text" class="offering-discount" ng-model="page.pagesub">
-          </div>
-          <div ng-switch-when="iconstitlesubtext">
-            <button class="delete" ng-click="deletePage($index)">X</button>
-            <p>Icons Title Sub Text Page</p>
-            <span>Business Development</span><input type="checkbox" class="page-icons" checked>
-            <span>Branding</span><input type="checkbox" class="page-icons" checked>
-            <span>Research &amp; Planning</span><input type="checkbox" class="page-icons" checked>
-            <span>Marketing</span><input type="checkbox" class="page-icons" checked>
-            <span>Web Development</span><input type="checkbox" class="page-icons" checked>
-            <input type="text" class="page-title" ng-model="page.pagetitle">
-            <input type="text" class="page-sub" ng-model="page.pagesub">
-            <textarea class="page-text" placeholder="page text" ng-model="page.pagetext"></textarea>
-          </div>
-          <div ng-switch-when="iconstitlesubtextlist">
-            <button class="delete" ng-click="deletePage($index)">X</button>
-            <p>Icons Title Sub Text Page</p>
-            <span>Business Development</span><input type="checkbox" class="page-icons">
-            <span>Branding</span><input type="checkbox" class="page-icons">
-            <span>Research &amp; Planning</span><input type="checkbox" class="page-icons" checked>
-            <span>Marketing</span><input type="checkbox" class="page-icons" checked>
-            <span>Web Development</span><input type="checkbox" class="page-icons">
-            <input type="text" class="page-title" ng-model="page.pagetitle">
-            <input type="text" class="page-sub" ng-model="page.pagesub">
-            <textarea class="page-text" ng-model="page.pagetext"></textarea>
-            <div ng-repeat="list in page.pagelist track by $index">
-              <input type="text" class="page-list" placeholder="page listelement" ng-model="list.text">
+              <button class="add-service-package" ng-click="addRow($index)">Add Row</button>
             </div>
           </div>
         </section>
@@ -141,9 +57,8 @@
     </div>
     <iframe id="preview" seamless style="height:{{previewHeight}}px"></iframe>
     <select ng-model="chosenProposal">
-      <option ng-repeat="proposal in proposalList">{{proposal.proposalname}}</option>
+      <option ng-repeat="proposal in proposalList" value="{{proposal._id}}">{{proposal.proposalname}}</option>
     </select>
-    {{chosenProposal}}
     <button ng-click="loadinProposal()">Load</button>
   </div>
   <div id="previewCon"></div>
