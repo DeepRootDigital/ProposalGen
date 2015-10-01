@@ -11,39 +11,19 @@ config(['$routeProvider', function($routeProvider) {
   	templateUrl: 'partials/frontpage.html', 
   	controller: 'homeCtrl'
   });
-  $routeProvider.when('/create', {
-  	templateUrl: 'partials/create.html', 
-  	controller: 'createController'
+  $routeProvider.when('/proposals/new', {
+  	templateUrl: 'partials/new_proposal.html', 
+  	controller: 'newController'
   });
-  $routeProvider.when('/hub', {
-    templateUrl: 'partials/hub.html',
-    controller: 'hubController'
+  $routeProvider.when('/proposals/:pid', {
+    templateUrl: 'partials/single_proposal.html',
+    controller: 'proposalController'
   });
   $routeProvider.when('/pagebuilder',{
     templateUrl: 'partials/pagemaker.html',
     controller: 'builderCtrl'
   });
   $routeProvider.otherwise({redirectTo: '/'});
-}]).run(['$rootScope', '$window', 'sessionService',
-function ($rootScope, $window, sessionService) {
-  $rootScope.session = sessionService;
-  $window.app = {
-    authState: function(state, user) {
-      $rootScope.$apply(function() {
-        switch (state) {
-          case 'success':
-          sessionService.authSuccess(user);
-          break;
-          case 'failure':
-          sessionService.authFailed();
-          break;
-        }
-
-      });
-    }
-  };
-
-  if ($window.user !== null) {
-    sessionService.authSuccess($window.user);
-  }
+}]).run([
+function () {
 }]);

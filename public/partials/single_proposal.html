@@ -1,0 +1,93 @@
+<a ng-href="#/">
+  <button>Back</button>
+</a>
+<button ng-click="generatePDF()">Generate PDF</button>
+<div class="content-container">
+  <div class="proposal">
+    <div class="proposal-top">
+      <h1>// {{proposal.proposalname}}</h1>
+      <img src="http://www.businessonmarketst.com/wp-content/themes/BusinessonThemeStreet/images/logo.png" alt="BMS Logo">
+      <div class="proposal-chart">
+        <div class="proposal-chart-header">
+          <div class="proposal-chart-left">PHASE</div>
+          <div class="proposal-chart-right">Month</div>
+        </div>
+        <div class="proposal-chart-numbers">
+          <div class="proposal-chart-left"></div>
+          <div class="proposal-chart-right">
+            <ul class="proposal-chart-number">
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              <li>5</li>
+              <li>6</li>
+              <li>7</li>
+              <li>8</li>
+              <li>9</li>
+              <li>10</li>
+              <li>11</li>
+              <li>12</li>
+            </ul>
+          </div>
+        </div>
+        <div class="proposal-chart-row" ng-repeat="data in proposal.propinfo">
+          <div class="proposal-chart-left">{{data.phase_shortname}}</div>
+          <div class="proposal-chart-right">
+            <ul class="proposal-chart-select {{data.phase_department}}">
+              <li ng-repeat="g in data.gantt" ng-class="{selected: g.show}"><input type="checkbox" ng-model="g.show"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p>*Optional services that can help to further increase website conversion rates.</p>
+      <div class="departments">
+        <div class="departments-single">
+          <img src="http://cdn2.hubspot.net/hubfs/313589/research-and-planning-icon-50.png" alt="Research and Planning">
+          <p>Resarch &amp;<br>Planning</p>
+        </div>
+        <div class="departments-single">
+          <img src="http://cdn2.hubspot.net/hubfs/313589/marketing-icon-50.png" alt="Marketing">
+          <p>Marketing</p>
+        </div>
+        <div class="departments-single">
+          <img src="http://cdn2.hubspot.net/hubfs/313589/branding-icon-50.png" alt="Branding">
+          <p>Branding</p>
+        </div>
+        <div class="departments-single">
+          <img src="http://cdn2.hubspot.net/hubfs/313589/web-development-icon-50.png" alt="Tech">
+          <p>Tech</p>
+        </div>
+      </div>
+    </div>
+    <div class="proposal-bottom">
+      <div ng-repeat="data in proposal.propinfo" class="phase-single">
+        <h2>{{data.phase_type}} - <span>{{data.phase_name}} {{data.phase_cost}}</span></h2>
+        <div class="phase-single-content">
+          {{data.phase_content}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h3>Phase List</h3>
+<select ng-model="chosenPhase">
+  <option ng-repeat="phase in phases" value="{{phase._id}}">{{phase.phase_name}}</option>
+</select>
+<button ng-click="addPhase()">Add Phase to Proposal</button>
+<h3>Create new phase</h3>
+<form ng-submit="savePhase()">
+  <label for="phase_name">Name</label>
+  <input ng-model="phase.phase_name" placeholder="Ex: Authentication Application" required>
+  <label for="phase_shortname">Shortname</label>
+  <input ng-model="phase.phase_shortname" placeholder="Ex: Authentication App" required>
+  <label for="phase_content">Content</label>
+  <textarea ng-model="phase.phase_content" placeholder="Ex: <p>A custom application will be created to grant access to informational pages and blogs for users. This will replace the legacy forum as well as house event registration pages connected to 3rd party systems.</p>" required></textarea>
+  <label for="phase_cost">Cost</label>
+  <input ng-model="phase.phase_cost" placeholder="Ex: $1,200" required>
+  <label for="phase_department">Department</label>
+  <input ng-model="phase.phase_department" placeholder="Ex: Tech" required>
+  <label for="phase_type">Type</label>
+  <input ng-model="phase.phase_type" placeholder="Ex: Website" required>
+  <input type="submit">
+</form>

@@ -1,25 +1,6 @@
-<button ng-show="session.isLoggedIn" ng-click="session.logout()">Logout</button>
-<div ng-controller="registrationCtrl" ng-hide="session.isLoggedIn">
-  <form ng-submit="session.register(userInfo)">
-    <input type="text" name="name" ng-model="userInfo.name" placeholder="Name">
-    <input type="text" name="username" ng-model="userInfo.username" placeholder="Username">
-    <input type="text" name="email" ng-model="userInfo.email" placeholder="Email">
-    <input type="password" name="password" ng-model="userInfo.password" placeholder="Password">
-    <input type="password" name="confirmPassword" ng-model="userInfo.confirmPassword" placeholder="Password Repeat">
-    <button type="submit">Sign Up</button>
-  </form>
-  <div>
-  <p>{{registerError}}</p>
-  </div>
+<div class="content-container">
+  <a ng-href="#/proposals/new"><button>New</button></a>
+  <ul>
+    <li ng-repeat="proposal in proposals"><a ng-href="#/proposals/{{proposal._id}}">{{proposal.proposalname}}</a></li>
+  </ul>
 </div>
-<div ng-controller="loginCtrl" ng-hide="session.isLoggedIn">
-  <form ng-submit="session.login(userInfo)">
-    <input type="text" name="email" ng-model="userInfo.email" placeholder="Email">
-    <input type="password" name="password" ng-model="userInfo.password" placeholder="Password">
-    <button type="submit">Login</button>
-  </form>
-</div>
-<div>
-  <p>{{loginError}}</p>
-</div>
-<button ng-hide="session.isLoggedIn" ng-click="session.facebookLogin()">Facebook Login</button>

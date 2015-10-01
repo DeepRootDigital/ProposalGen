@@ -3,7 +3,7 @@ var express = require('express'),
     mongoStore = require('connect-mongo')(express),
     path = require('path');
 
-module.exports = function (passport, db) {
+module.exports = function () {
     var app = express();
     app.set('port', process.env.PORT || 5050);
     app.set('views', __dirname + '/../views');
@@ -17,16 +17,16 @@ module.exports = function (passport, db) {
     app.use(express.bodyParser({keepExtensions:true,uploadDir:__dirname+'/../public/icons/tmp'}));
     app.use(expressValidator());
     app.use(express.cookieParser());
-    app.use(express.session({
+    /*app.use(express.session({
         secret: 'my-session-store',
         store: new mongoStore({
             url: db,
             collection : 'sessions'
         })
-    }));
+    }));*/
 
-    app.use(passport.initialize());
-    app.use(passport.session());
+    //app.use(passport.initialize());
+    //app.use(passport.session());
 
     app.use(express.static(path.join(__dirname, '/../public')));
 

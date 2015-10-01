@@ -4,7 +4,7 @@ Schema = mongoose.Schema;
 var ProposalSchema = new Schema({
   owner: String,
   proposalname: String,
-  propinfo: {}
+  propinfo: Array
 });
 
 module.exports = mongoose.model('Proposal', ProposalSchema);

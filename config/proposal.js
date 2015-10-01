@@ -3,11 +3,11 @@ var fs = require('fs');
 var mongoose = require('mongoose'),
 Proposal = mongoose.model('Proposal');
 /*
- * GET memes listing.
+ * GET Proposal listing.
  */
 
  exports.list = function(req, res, next) {
-  Proposal.find({owner: req.user.email},{proposalname: true, _id:true},function(err,proposals){
+  Proposal.find({},{proposalname: true, _id:true},function(err,proposals){
     if (err) return next(err);
     if (!proposals) return next("empty");
     res.status(200).send(proposals);
@@ -18,84 +18,103 @@ Proposal = mongoose.model('Proposal');
  * POST to addmeme
  */
 
- exports.load = function(req, res, next) {
-  Proposal.find({_id: req.body.chosen, owner: req.user.email }).exec(function(err,proposal){
+ exports.get = function(req, res, next) {
+  Proposal.find({_id: req.body.pid},{_id:false}).exec(function(err,proposal){
     if (err) return next(err);
     if (!proposal) return next("empty");
     res.status(200).send(proposal);
   });
 };
 
-exports.genproposal = function() {
-  return function(req,res) {
-    var pageSize = {
-      width: 1294,
-      height: 999
-    };
-    var count = 0;
-    var doc = new PDFDocument({layout:'landscape',margin: 0,size:[1003.00, 1298.00]});
-    var stream = doc.pipe(fs.createWriteStream('public/pdf/' + req.body.clientname + '.pdf'));
-    // Iterate through the pages
-    req.body.pages.forEach(function(page){
-      if (count != 0) {
-        doc.addPage();
-      }
-      count += 1;
-      // Check Settings for Background
-      if (page.background.image == false) {
-        doc.rect(0,0,pageSize.width,pageSize.height).fillAndStroke("red");
-      } else {
-        // doc.image(page.background.source, 0, 0, {width: pageSize.width, height: pageSize.height});
-      }
-      //Check Settings for Header
-      if (page.pagesetup.header.exists == true) {
-        if (page.pagesetup.header.settings.image == false) {
-          doc.rect(0,0,pageSize.width,(page.pagesetup.header.settings.height/100)*pageSize.height).fillAndStroke("blue");
-        } else {
-          // doc.image(page.pagesetup.header.settings.source, 0, 0, {width: pageSize.width, height: (page.pagesetup.header.settings.height/100)*pageSize.height});
-        }
-      }
-      //Check Settings for Footer
-      if (page.pagesetup.footer.exists == true) {
-        if (page.pagesetup.header.settings.image == false) {
-          doc.rect(0,pageSize.height-((page.pagesetup.footer.settings.height/100)*pageSize.height),pageSize.width,(page.pagesetup.footer.settings.height/100)*pageSize.height).fillAndStroke(page.pagesetup.footer.settings.color);
-        } else {
-          // doc.image(page.pagesetup.header.settings.source, 0, pageSize.height-((page.pagesetup.footer.settings.height/100)*pageSize.height), {width: pageSize.width, height: (page.pagesetup.footer.settings.height/100)*pageSize.height});
-        }
-      }
-      //Iterate through Headings
-      page.pagesetup.heading.forEach(function(heading){
-        if (heading.exists == true) {
-          doc.fontSize(heading.settings.size).fillColor('#2c292a').font(heading.settings.font).text(heading.content ? heading.content : "", (heading.settings.xpos/100) * pageSize.width, (heading.settings.ypos/100) * pageSize.height, {width:(heading.settings.width/100)*pageSize.width});
-        }
-      });
-      //Iterate through Textbodies
-      page.pagesetup.textbody.forEach(function(textbody){
-        if (textbody.exists == true) {
-          doc.fontSize(textbody.settings.size).fillColor('#2c292a').font(textbody.settings.font).text(textbody.content ? textbody.content : "", (textbody.settings.xpos/100) * pageSize.width, (textbody.settings.ypos/100) * pageSize.height, {width:(textbody.settings.width/100)*pageSize.width});
-        }
-      });
-      //Iterate through Imageareas
-      page.pagesetup.imagearea.forEach(function(imagearea){
-        if (imagearea.exists == true) {
-          // doc.image(imagearea.content ? imagearea.content : imagearea.settings.defaultimage, (imagearea.settings.xpos/100) * pageSize.width, (imagearea.settings.ypos/100) * pageSize.height, {width: (imagearea.settings.width/100)*pageSize.width, height: (imagearea.settings.height/100)*pageSize.height});
-        }
-      });
-      page.pagesetup.etc.forEach(function(etc){
-        if (etc.exists == true) {
-          if (etc.assettype == "box") {
-            doc.rect((etc.settings.xpos/100)*pageSize.width,(etc.settings.ypos/100)*pageSize.height,(etc.settings.width/100)*pageSize.width,(etc.settings.height/100)*pageSize.height).fillAndStroke("green");
-          } else if (etc.assettype == "table") {
+exports.generate = function(req, res, next) {
+  var pageSize = {
+    width: 595.28,
+    height: 841.89
+  };
+  var data = req.body;
+  var doc = new PDFDocument({layout:'portrait',margin: 0,size:[595.28, 841.89]});
+  var stream = doc.pipe(fs.createWriteStream('public/pdf/' + req.body.proposalname + '.pdf'));
 
-          }
-        }
-      })
-    });
-    doc.end();
-    stream.on('finish', function() {
-      res.send(200);
-    });
+  var topArea = 296 + 27 * data.propinfo.length;
+  var pageBottom = pageSize - 30;
+
+  doc.rect(0,0,pageSize.width,topArea).fillAndStroke("#f2f2f2");
+  
+  var leftContainer = (pageSize.width * .88) * .25;
+  var rightContainer = (pageSize.width * .88) * .75;
+  var rightContainerDiv = rightContainer / 12;
+  var leftMargin = .06 * pageSize.width;
+
+  doc.fontSize(30).fillColor('#7e1619').text("// ", leftMargin, 30).fillColor('#343533').text(req.body.proposalname.toUpperCase(), leftMargin + 23, 30)
+  .image("public/images/logo-red.png", .94 * pageSize.width - 55, 30, {width: 55})
+  .fontSize(12).text("PHASE", leftMargin, 110,{width: leftContainer, align: "center"})
+  .text("MONTH", leftMargin + leftContainer, 110, {width: rightContainer, align: "center"});
+
+  // Iterate out the months
+  for (var i = 0; i < 12; i++) {
+    doc.text(i+1, leftMargin + leftContainer + (rightContainerDiv * i), 125, {width: rightContainerDiv, align: "center"});
   }
+
+
+  // Iterate over the phases
+  for (var i = 0; i < data.propinfo.length; i++) {
+    var thisData = data.propinfo[i];
+    var top = 140 + (i * 27);
+    // Place Name on the Left
+    doc.fillColor("#343533").text(thisData.phase_shortname, leftMargin, top+5, {width: leftContainer, align: "left"});
+    // Iterate over the gantt boxes
+    for (var j = 0; j < thisData.gantt.length; j++) {
+      var left = leftMargin + leftContainer + (j * rightContainerDiv);
+      // Check if the box should be filled
+      if (thisData.gantt[j].show == true) {
+        // Determine the fill color
+        if (thisData.phase_department == "Research") {
+          var fillingColor = "#F1AF00";
+        } else if (thisData.phase_department == "Marketing") {
+          var fillingColor = "#E11A22";
+        } else if (thisData.phase_department == "Branding") {
+          var fillingColor = "#6EC5E1";
+        } else {
+          var fillingColor = "#B3D807";
+        }
+        // Fill the box according to the department
+        doc.dash(1,{space:0}).rect(left,top,rightContainerDiv,25).fillAndStroke(fillingColor,fillingColor);
+      }
+      // Place the dotted lines to separate the boxes
+      doc.moveTo(left,top).lineTo(left,top+25).dash(1,{space:2}).strokeColor("#343533").stroke().moveTo(left+rightContainerDiv,top).lineTo(left+rightContainerDiv,top+25).stroke();
+    }
+  }
+
+  // Write the Optional Services Line
+  doc.fillColor("#343533").text("*Optional services that can help to further increase website conversion rates.", leftMargin, top + 35, {width: .88 * pageSize.width, align: "left"});
+
+  // Place different department logos and title
+  var departmentWidth = .22 * pageSize.width;
+  doc.image("public/images/servicepage-planning.png", leftMargin + ((departmentWidth - 50) / 2), top + 75, {width: 50})
+  .fillColor("#343533").text("RESEARCH", leftMargin, top + 135, {width: .22 * pageSize.width, align: "center", continued: "yes"}).text("& PLANNING")
+  doc.image("public/images/servicepage-marketing.png", leftMargin + ((departmentWidth - 50) / 2) + departmentWidth, top + 75, {width: 50})
+  .fillColor("#343533").text("MARKETING", leftMargin + departmentWidth, top + 135, {width: .22 * pageSize.width, align: "center"})
+  doc.image("public/images/servicepage-branding.png", leftMargin + ((departmentWidth - 50) / 2) + departmentWidth * 2, top + 75, {width: 50})
+  .fillColor("#343533").text("BRANDING", leftMargin + departmentWidth * 2, top + 135, {width: .22 * pageSize.width, align: "center"})
+  doc.image("public/images/servicepage-webdev.png", leftMargin + ((departmentWidth - 50) / 2) + departmentWidth * 3, top + 75, {width: 50})
+  .fillColor("#343533").text("TECH", leftMargin + departmentWidth * 3, top + 135, {width: .22 * pageSize.width, align: "center"});
+
+  // Bottom Portion of PDF
+  topArea += 30;
+  for (var i = 0; i < data.propinfo.length; i++) {
+    var thisData = data.propinfo[i];
+    doc.fillColor("#f2f2f2").text(thisData.phase_type + " - ",leftMargin,topArea, {continued: true, width: .88 * pageSize.width, columns: 2})
+    .fillColor("#343533").text(thisData.phase_name + " " + thisData.phase_cost)
+    .text("<ul><li><b>Section 1 -</b> Industry Performance</li><li><b>Section 2 -</b> Company Overview</li></ul>");
+  }
+
+  
+
+  // End and Save PDF
+  doc.end();
+  stream.on('finish', function() {
+    res.send(200);
+  });
 };
 
 exports.addProposal = function(req, res, next) {
@@ -108,7 +127,7 @@ exports.addProposal = function(req, res, next) {
   });
 };
 
-exports.updateMeme = function(db) {
+/*exports.updateMeme = function(db) {
   return function(req, res) {
     var usern = req.body.username;
     var mmn = req.body.memename;
@@ -122,7 +141,7 @@ exports.updateMeme = function(db) {
 
 /*
  * DELETE to deletememe
- */
+ *
 
  exports.deletememe = function(db) {
    return function(req, res) {
@@ -131,4 +150,4 @@ exports.updateMeme = function(db) {
        res.send((result === 1) ? { msg: '' } : { msg:'error: ' + err });
      });
    }
- };
+ };*/

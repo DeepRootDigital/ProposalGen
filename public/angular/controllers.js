@@ -7,23 +7,11 @@ var appCtrl = angular.module('app');
 // Home Controller
 appCtrl.controller('homeCtrl', ['$scope', '$rootScope', '$http',
   function($scope, $rootScope, $http) {
-    $scope.messages = {};
-
-    function loadMessages() {
-      $http.get('/api/secured/message').success(function(data) {
-        $scope.messages.secured = data.message || data.error;
-      });
-
-      $http.get('/api/message').success(function(data) {
-        $scope.messages.unsecured = data.message || data.error;
-      });
-    }
-
-    var deregistration = $rootScope.$on('session-changed', loadMessages);
-    $scope.$on('$destroy', deregistration);
-
-    loadMessages();
-
+    $http.get('/proposal/list').success(function(res){
+      $scope.proposals = res;
+    }).error(function(){
+      console.log("There was an error.");
+    });
   }]);
 
 // LOGIN CONTROLLER
@@ -258,62 +246,24 @@ appCtrl.controller('builderCtrl', ['$scope','$rootScope','$http','$window','$loc
 }]);
 
 // CREATE CONTROLLER
-appCtrl.controller('createController', ['$scope','$rootScope','$http','$document','$window','$location',function($scope,$rootScope,$http,$document,$window,$location) {
-
-  $scope.sortableConfig = {containment: "parent"};
-  $scope.proposalList = [];
-  $scope.pageTypes = [];
-  $scope.showFind = false;
-  $scope.wordFind = "";
-  $scope.wordReplace = "";
-  $scope.changeShowFind = function(){
-    $scope.showFind = !$scope.showFind;
-  };
-  $scope.propInfo = {
-    clientname: "clientname",
-    pages: []
-  };
-  $scope.containerHeight = $window.innerHeight-230;
-  $scope.previewHeight = $window.innerHeight-30;
-  $scope.username = $rootScope.user;
-  $scope.useremail = $rootScope.email;
-  $scope.selectedPage = 0;
-  $scope.selectedPageType = 0;
-
-  $scope.loadPageTypes = function() {
-    $http.get('/proposalpage').success(function(res){
-      $scope.pageTypes = res;
-    }).error(function(){
-      console.log("There was an error.");
-    });
-  };
-  $scope.selectPage = function(index) {
-    $scope.selectedPage = index;
-  };
-  $scope.addPage = function() {
-    var selectedPage = angular.copy($scope.pageTypes[$scope.selectedPageType]);
-    $scope.propInfo.pages.splice($scope.selectedPage+1,0,selectedPage);
-  };
-  $scope.deletePage = function(index) {
-    $scope.propInfo.pages.splice(parseInt(index),1);
-  };
-  $scope.deleteRow = function(parentindex,index) { 
-  };
-  $scope.addRow = function(index) {
-    console.log("meow");
+appCtrl.controller('newController', ['$scope','$rootScope','$http','$document','$window','$location',function($scope,$rootScope,$http,$document,$window,$location) {
+  $scope.proposal = {
+    owner: "BMS",
+    proposalname: "",
+    propinfo: []
   };
 
-  $scope.genProposal = function() {
+  /*$scope.genProposal = function() {
     var clientname = $scope.propInfo.clientname;
     $http.post('/genPDF',$scope.propInfo).success(function(res){
       $document.find("iframe").attr("src","pdf/" + clientname +".pdf");
     }).error(function() {
       alert('Error!');
     });
-  };
+  };*/
 
   $scope.saveProposal = function() {
-    var newProp = true;
+    /*var newProp = true;
     $scope.proposalList.forEach(function(element,index,array) {
       if (element.proposalname == $scope.propSaveName) {
         newProp = false;
@@ -324,97 +274,102 @@ appCtrl.controller('createController', ['$scope','$rootScope','$http','$document
       if (confirm == false) {
         return;
       }
-    }
-    var propInfo = {
-      owner: $scope.useremail,
-      proposalname: $scope.propSaveName,
-      propinfo: $scope.propInfo
-    };
-    $http.post('/saveProposal',propInfo).success(function(res){
+    }*/
+    $http.post('/proposal/save',$scope.proposal).success(function(res){
       $scope.saveConfirm = "Proposal Saved.";
-      $scope.loadProposal();
+      //$scope.loadProposal();
       setTimeout(function(){
         $scope.saveConfirm = "";
       }, 2000);
+      console.log("success");
     }).error(function() {
       $scope.saveConfirm = "There was a problem. Please try again.";
       setTimeout(function(){
         $scope.saveConfirm = "";
       }, 2000);
+      console.log("error");
     });
   };
 
-  $scope.loadProposal = function(){
+  /*$scope.loadProposal = function(){
     $http.get('/proposalList').success(function(res){
       $scope.proposalList = res;
     }).error(function(){
       console.log("There was an error.");
     });
-  };
-
-  $scope.loadinProposal = function(){
-    var confirm = $window.confirm("Loading this proposal will overwrite any changes you might have made. Please press Cancel and save your changes or press OK to continue.");
-    if (confirm == false) {
-      return;
-    }
-    $http.post('/proposalLoad',{chosen: $scope.chosenProposal}).success(function(res){
-      $scope.propInfo = res[0].propinfo;
-    }).error(function(){
-      console.log("There was an error.");
-    });
-  };
-
-  $scope.replaceAll = function() {
-    var found = $scope.wordFind;
-    var replace = $scope.wordReplace;
-    var stringified = JSON.stringify($scope.propInfo);
-    stringified = stringified.replace(found,replace);
-    $scope.propInfo = JSON.parse(stringified);
-  };
-
-  $scope.dropzoneConfig = {
-    'options': { // passed into the Dropzone constructor
-      url: '/uploadImage',
-      init: function() {
-        this.on("success", function(file) { 
-          var bucket = new AWS.S3({params: {Bucket: 'proposalgen'}});
-          if (file) {
-            var params = {Key: file.name, ContentType: file.type, Body: file};
-            bucket.putObject(params, function(err,data){
-              if (err) {
-                console.log(err);
-              } else {
-                console.log(data);
-              }
-            });
-          }
-          $scope.propInfo.pages[1].pageimage = file.name;
-          var leftspot = 400 - (parseInt(file.width) / 2);
-          if (leftspot < 192) {
-            leftspot = 192;
-          }
-          $scope.propInfo.pages[1].pagetext = String(leftspot);
-        });
-      }
-    }
-  };
-
-  if (!$rootScope.email) {
-    // $location.url('/');
-  } else {
-    $scope.loadPageTypes();
-  }
+  };*/
 }]);
 
-// Menu Controller
-appCtrl.controller('hubController', function($scope) {
-  $scope.pages = [
-  {
-    name: "Create Proposal",
-    url: "/#/create"
-  },{
-    name: "Edit Page Templates",
-    url: "/#/pagebuilder"
-  }
+// Proposal Controller
+appCtrl.controller('proposalController', function($scope,$routeParams,$http) {
+  
+  $scope.phases = [];
+  $scope.phase = {};
+  $scope.gantt = [
+    {
+      name: 'row1', tasks: [
+        {name: 'task1', from: '2013-10-07T09:00:00', to: '2013-10-07T10:00:00'},
+        {name: 'task2', from: new Date(2013, 9, 18, 18, 0, 0), to: new Date(2013, 9, 18, 18, 0, 0)}
+      ]
+    },
+    {
+      name: 'row2', tasks: [
+        {name: 'task3', from: '2013-10-07T09:00:00', to: '2013-10-07T10:00:00'},
+        {name: 'task4', from: new Date(2013, 9, 18, 18, 0, 0), to: new Date(2013, 9, 18, 18, 0, 0)}
+      ]
+    }
   ];
+
+  // Get the single proposal
+  $http.post('/proposal/get',{"pid": $routeParams.pid}).success(function(res){
+    $scope.proposal = res[0];
+  }).error(function() {
+    $scope.proposal = "There was a problem. Please try again.";
+  });
+
+  // Get List of Phases
+  $scope.getPhases = function() {
+    $http.get('/phase/list').success(function(res){
+      $scope.phases = res;
+    }).error(function(err){
+      console.log(err);
+    });
+  }
+
+  // Save New Phase
+  $scope.savePhase = function() {
+    console.log($scope.phase);
+    $http.post('/phase/save',$scope.phase).success(function(res){
+      $scope.phaseMessage = "Success!";
+      $scope.getPhases();
+    }).error(function(err){
+      console.log(err);
+    });
+  }
+
+  $scope.addPhase = function() {
+    for (var i = 0; i < $scope.phases.length; i++) {
+      if ($scope.chosenPhase == $scope.phases[i]._id) {
+        var phase = $scope.phases[i];
+      }
+    }
+    if (phase) {
+      console.log($scope.proposal);
+      phase.gantt = [{show: false},{show: false},{show: false},{show: false},{show: false},{show: false},{show: false},{show: false},{show: false},{show: false},{show: false},{show: false}];
+      $scope.proposal.propinfo.push(phase);
+      console.log(phase);
+    }
+  }
+
+  $scope.generatePDF = function() {
+    console.log($scope.proposal);
+    $http.post('/proposal/generate',$scope.proposal).success(function(res){
+      $scope.proposalMessage = "Success!";
+    }).error(function(err){
+      console.log(err);
+    });
+  }
+
+  $scope.getPhases();
+
 });
